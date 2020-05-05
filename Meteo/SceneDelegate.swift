@@ -10,7 +10,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let service = WeatherAPIService()
+        let service = WeatherAPIService(session: URLSession.shared)
         let view = WeatherViewControler()
         let presenter = WeatherPresenter(view: view, service: service)
         view.presenter = presenter

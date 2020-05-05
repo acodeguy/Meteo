@@ -2,7 +2,7 @@ import Foundation
 
 struct Constants {
     struct API {
-        static let baseURL = "https://www.metaweather.com/api/"
+        static let baseURL = "https://www.metaweather.com/api"
         static let jsonResponseExample = """
             {
                 "consolidated_weather": [

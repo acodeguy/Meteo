@@ -15,7 +15,7 @@
 		4942F48424571F9B007CF0C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4942F48224571F9B007CF0C2 /* LaunchScreen.storyboard */; };
 		4942F48F24571F9B007CF0C2 /* WeatherPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4942F48E24571F9B007CF0C2 /* WeatherPresenterTests.swift */; };
 		49A5D31424605DC6004D4DBB /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D31324605DC6004D4DBB /* WeatherViewController.swift */; };
-		49A5D31A24606057004D4DBB /* WeatheResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D31924606057004D4DBB /* WeatheResponse.swift */; };
+		49A5D31A24606057004D4DBB /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D31924606057004D4DBB /* WeatherResponse.swift */; };
 		49A5D31D246060AD004D4DBB /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D31C246060AD004D4DBB /* ServiceProtocol.swift */; };
 		49A5D31F246060E6004D4DBB /* WeatherPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D31E246060E6004D4DBB /* WeatherPresenterProtocol.swift */; };
 		49A5D321246060FF004D4DBB /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D320246060FF004D4DBB /* WeatherView.swift */; };
@@ -26,6 +26,8 @@
 		49A5D32C24616B9C004D4DBB /* WeatherViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D32B24616B9C004D4DBB /* WeatherViewControllerSpy.swift */; };
 		49A5D32E24616CAE004D4DBB /* WeatherAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D32D24616CAE004D4DBB /* WeatherAPIServiceTests.swift */; };
 		49A5D33E24618935004D4DBB /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D33D24618935004D4DBB /* URLSessionProtocol.swift */; };
+		49A5D34024618C8F004D4DBB /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D33F24618C8F004D4DBB /* URLSessionDataTaskMock.swift */; };
+		49A5D34224618CDA004D4DBB /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D34124618CDA004D4DBB /* URLSessionMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +53,7 @@
 		4942F48E24571F9B007CF0C2 /* WeatherPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenterTests.swift; sourceTree = "<group>"; };
 		4942F49024571F9B007CF0C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49A5D31324605DC6004D4DBB /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		49A5D31924606057004D4DBB /* WeatheResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatheResponse.swift; sourceTree = "<group>"; };
+		49A5D31924606057004D4DBB /* WeatherResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResponse.swift; sourceTree = "<group>"; };
 		49A5D31C246060AD004D4DBB /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
 		49A5D31E246060E6004D4DBB /* WeatherPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenterProtocol.swift; sourceTree = "<group>"; };
 		49A5D320246060FF004D4DBB /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,8 @@
 		49A5D32B24616B9C004D4DBB /* WeatherViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewControllerSpy.swift; sourceTree = "<group>"; };
 		49A5D32D24616CAE004D4DBB /* WeatherAPIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIServiceTests.swift; sourceTree = "<group>"; };
 		49A5D33D24618935004D4DBB /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		49A5D33F24618C8F004D4DBB /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
+		49A5D34124618CDA004D4DBB /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +165,7 @@
 		49A5D31824606047004D4DBB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				49A5D31924606057004D4DBB /* WeatheResponse.swift */,
+				49A5D31924606057004D4DBB /* WeatherResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +183,8 @@
 			children = (
 				49A5D32924616B62004D4DBB /* WeatherAPIServiceStub.swift */,
 				49A5D32B24616B9C004D4DBB /* WeatherViewControllerSpy.swift */,
+				49A5D33F24618C8F004D4DBB /* URLSessionDataTaskMock.swift */,
+				49A5D34124618CDA004D4DBB /* URLSessionMock.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -311,7 +317,7 @@
 				49A5D31424605DC6004D4DBB /* WeatherViewController.swift in Sources */,
 				49A5D31F246060E6004D4DBB /* WeatherPresenterProtocol.swift in Sources */,
 				4942F47F24571F9A007CF0C2 /* Meteo.xcdatamodeld in Sources */,
-				49A5D31A24606057004D4DBB /* WeatheResponse.swift in Sources */,
+				49A5D31A24606057004D4DBB /* WeatherResponse.swift in Sources */,
 				49A5D32524606468004D4DBB /* WeatherPresenter.swift in Sources */,
 				49A5D323246061CD004D4DBB /* WeatherAPIService.swift in Sources */,
 				49A5D321246060FF004D4DBB /* WeatherView.swift in Sources */,
@@ -324,10 +330,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49A5D34224618CDA004D4DBB /* URLSessionMock.swift in Sources */,
 				49A5D32C24616B9C004D4DBB /* WeatherViewControllerSpy.swift in Sources */,
 				4942F48F24571F9B007CF0C2 /* WeatherPresenterTests.swift in Sources */,
 				49A5D32A24616B62004D4DBB /* WeatherAPIServiceStub.swift in Sources */,
 				49A5D32E24616CAE004D4DBB /* WeatherAPIServiceTests.swift in Sources */,
+				49A5D34024618C8F004D4DBB /* URLSessionDataTaskMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

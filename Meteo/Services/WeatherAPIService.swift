@@ -1,9 +1,14 @@
 import Foundation
 
 class WeatherAPIService: ServiceProtocol {
+    var session: URLSessionProtocol
+    
+    required init(session: URLSessionProtocol) {
+        self.session = session
+    }
+    
     func fetch(
         url: URL,
-        using session: URLSessionProtocol = URLSession.shared,
         completionHandler: @escaping (Result<WeatherResponse, Error>) -> Void
     ) {
         session.dataTask(with: url) { data, _, error in
