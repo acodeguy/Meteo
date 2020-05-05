@@ -6,7 +6,7 @@ class WeatherAPIServiceTests: XCTestCase {
         let service = WeatherAPIServiceStub()
         let dummyURL = URL(string: "dummy-url")!
         
-        service.fetch(url: dummyURL, using: .shared) { result in
+        service.fetch(url: dummyURL, using: URLSession.shared) { result in
             switch result {
             case .success(let response):
                 XCTAssertEqual(response.title, "Rome")

@@ -25,6 +25,7 @@
 		49A5D32A24616B62004D4DBB /* WeatherAPIServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D32924616B62004D4DBB /* WeatherAPIServiceStub.swift */; };
 		49A5D32C24616B9C004D4DBB /* WeatherViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D32B24616B9C004D4DBB /* WeatherViewControllerSpy.swift */; };
 		49A5D32E24616CAE004D4DBB /* WeatherAPIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D32D24616CAE004D4DBB /* WeatherAPIServiceTests.swift */; };
+		49A5D33E24618935004D4DBB /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D33D24618935004D4DBB /* URLSessionProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		49A5D32924616B62004D4DBB /* WeatherAPIServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIServiceStub.swift; sourceTree = "<group>"; };
 		49A5D32B24616B9C004D4DBB /* WeatherViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewControllerSpy.swift; sourceTree = "<group>"; };
 		49A5D32D24616CAE004D4DBB /* WeatherAPIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIServiceTests.swift; sourceTree = "<group>"; };
+		49A5D33D24618935004D4DBB /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				49A5D31C246060AD004D4DBB /* ServiceProtocol.swift */,
 				49A5D31E246060E6004D4DBB /* WeatherPresenterProtocol.swift */,
 				49A5D320246060FF004D4DBB /* WeatherView.swift */,
+				49A5D33D24618935004D4DBB /* URLSessionProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49A5D33E24618935004D4DBB /* URLSessionProtocol.swift in Sources */,
 				49A5D31D246060AD004D4DBB /* ServiceProtocol.swift in Sources */,
 				49A5D32724609792004D4DBB /* Constants.swift in Sources */,
 				49A5D31424605DC6004D4DBB /* WeatherViewController.swift in Sources */,

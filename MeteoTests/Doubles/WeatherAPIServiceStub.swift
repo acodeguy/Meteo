@@ -4,7 +4,7 @@ import Foundation
 class WeatherAPIServiceStub: ServiceProtocol {
     func fetch(
         url: URL,
-        using session: URLSession,
+        using session: URLSessionProtocol,
         completionHandler: @escaping (Result<WeatherResponse, Error>
         ) -> Void) {
         guard let jsonData = Constants.API.jsonResponseExample.data(using: .utf8) else { return }

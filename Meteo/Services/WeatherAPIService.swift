@@ -3,7 +3,7 @@ import Foundation
 class WeatherAPIService: ServiceProtocol {
     func fetch(
         url: URL,
-        using session: URLSession = .shared,
+        using session: URLSessionProtocol = URLSession.shared,
         completionHandler: @escaping (Result<WeatherResponse, Error>) -> Void
     ) {
         session.dataTask(with: url) { data, _, error in
