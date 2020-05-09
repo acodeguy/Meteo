@@ -5,8 +5,5 @@ protocol ServiceProtocol {
     
     init(session: URLSessionProtocol)
     
-    func fetch(
-        url: URL,
-        completionHandler: @escaping (Result<WeatherResponse, Error>
-        ) -> Void)
+    func fetch(url: URL, completionHandler: @escaping (Result<WeatherResponse, Error>) -> Void)
 }

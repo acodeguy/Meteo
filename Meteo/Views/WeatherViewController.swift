@@ -1,17 +1,18 @@
 import UIKit
 
-class WeatherViewControler: UIViewController, WeatherViewProtocol {
+class WeatherViewController: UIViewController, WeatherViewProtocol {
     var presenter: WeatherPresenterProtocol?
+    var dispatchQueue: DispatchQueueProtocol = DispatchQueue.main
     let titleLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+        
         if let presenter = presenter {
             presenter.showWeather(for: "721943")
         }
-        
-        setupUI()
     }
     
     private func setupUI() {
@@ -28,7 +29,7 @@ class WeatherViewControler: UIViewController, WeatherViewProtocol {
     }
     
     func setWeather(weatherResponse: WeatherResponse) {
-        DispatchQueue.main.async {
+        dispatchQueue.async {
             self.titleLabel.text = weatherResponse.title
         }
     }
