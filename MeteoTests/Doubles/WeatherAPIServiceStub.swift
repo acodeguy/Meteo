@@ -8,10 +8,7 @@ class WeatherAPIServiceStub: ServiceProtocol {
         self.session = session
     }
     
-    func fetch(
-        url: URL,
-        completionHandler: @escaping (Result<WeatherResponse, Error>
-        ) -> Void) {
+    func fetch(url: URL, completionHandler: @escaping (Result<WeatherResponse, Error>) -> Void) {
         session.dataTask(with: url) { data, _, _ in
             guard let jsonData = data else { return }
             

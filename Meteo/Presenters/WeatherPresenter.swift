@@ -12,7 +12,7 @@ class WeatherPresenter: WeatherPresenterProtocol {
     func showWeather(for woeid: String = "721943") {
         guard let url = URL(string: "\(Constants.API.baseURL)/location/\(woeid)") else { return }
         
-        service.fetch(url: url) { result in // urlsession may be the problem; inject it!
+        service.fetch(url: url) { result in
             switch result {
             case .success(let response):
                 self.view.setWeather(weatherResponse: response)
