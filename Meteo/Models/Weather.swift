@@ -1,6 +1,6 @@
 import Foundation
 
-struct Weather: Decodable {
+struct Weather: Decodable {   
     let temperature: Double
     
     private enum CodingKeys: String, CodingKey {

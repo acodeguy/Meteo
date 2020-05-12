@@ -11,7 +11,7 @@ class WeatherPresenterStub: WeatherPresenterProtocol {
     }
     
     func showWeather(for woeid: String) {
-        let response = WeatherResponse(title: "Rome", weather: [Weather(temperature: 28.04)])
+        let response = WeatherResponse(title: "Rome", weather: [Weather(temperature: 27.29)])
         self.view.setWeather(weatherResponse: response)
     }
 }
