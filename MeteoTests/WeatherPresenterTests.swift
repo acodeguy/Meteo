@@ -11,10 +11,6 @@ class WeatherPresenterTests: XCTestCase {
         
         sut.showWeather()
         
-        XCTAssertEqual(
-            view.numberOfTimesSetWeatherWasCalled,
-            1,
-            "setWeather was not called the required number of times"
-        )
+        XCTAssertEqual(view.numberOfTimesSetWeatherWasCalled, 1, "setWeather was not called the required number of times")
     }
 }
