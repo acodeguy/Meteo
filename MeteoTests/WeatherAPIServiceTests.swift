@@ -30,9 +30,9 @@ class WeatherAPIServiceTests: XCTestCase {
     func testReturnsTheCurrentTemperature() {
         let session = URLSessionMock()
         let service = WeatherAPIServiceStub(session: session)
-        let url = URL(string: "\(Constants.API.baseURL)/location/721943")!
+        let dummyURL = URL(string: "dummy-url")!
         
-        service.fetch(url: url) { result in
+        service.fetch(url: dummyURL) { result in
             switch result {
             case .success(let response):
                 if let currentWeather = response.weather.first {
