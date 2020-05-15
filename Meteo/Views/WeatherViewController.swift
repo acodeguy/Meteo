@@ -38,7 +38,7 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
     
     func setWeather(weatherResponse: WeatherResponse) {
         dispatchQueue.async {
-            self.titleLabel.text = weatherResponse.title
+            self.titleLabel.text = "\(weatherResponse.title), \(weatherResponse.locationInfo.countryName)"
             
             guard let weather = weatherResponse.weather.first else { return }
             
