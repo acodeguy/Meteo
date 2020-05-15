@@ -22,7 +22,7 @@ class WeatherViewControllerTests: XCTestCase {
     }
     
     func testSetsTheLocationLabel() {
-        XCTAssertEqual(sut.titleLabel.text, "Rome")
+        XCTAssertEqual(sut.titleLabel.text, "Rome, Italy")
     }
     
     func testSetsTheCurrentTemperature() {
