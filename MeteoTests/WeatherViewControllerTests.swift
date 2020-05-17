@@ -12,7 +12,7 @@ class WeatherViewControllerTests: XCTestCase {
         sut.dispatchQueue = DispatchQueueMock()
         presenter = WeatherPresenterStub(view: sut, service: service)
         sut.presenter = presenter
-        presenter.showWeather(for: String())
+        presenter.showWeather(for: 0)
     }
     
     override func tearDown() {

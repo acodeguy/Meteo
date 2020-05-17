@@ -9,7 +9,7 @@ class WeatherPresenter: WeatherPresenterProtocol {
         self.service = service
     }
     
-    func showWeather(for woeid: String = "721943") {
+    func showWeather(for woeid: Int = 721943) {
         guard let url = URL(string: "\(Constants.API.baseURL)/location/\(woeid)") else { return }
         
         service.fetch(url: url) { result in
