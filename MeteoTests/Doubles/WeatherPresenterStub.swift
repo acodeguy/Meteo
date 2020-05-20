@@ -3,9 +3,9 @@ import Foundation
 
 class WeatherPresenterStub: WeatherPresenterProtocol {
     var view: WeatherViewProtocol
-    var service: ServiceProtocol
+    var service: APIClientProtocol
     
-    required init(view: WeatherViewProtocol, service: ServiceProtocol) {
+    required init(view: WeatherViewProtocol, service: APIClientProtocol) {
         self.service = service
         self.view = view
     }

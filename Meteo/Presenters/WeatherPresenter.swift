@@ -2,9 +2,9 @@ import Foundation
 
 class WeatherPresenter: WeatherPresenterProtocol {
     var view: WeatherViewProtocol
-    var service: ServiceProtocol
+    var service: APIClientProtocol
     
-    required init(view: WeatherViewProtocol, service: ServiceProtocol) {
+    required init(view: WeatherViewProtocol, service: APIClientProtocol) {
         self.view = view
         self.service = service
     }
@@ -12,7 +12,7 @@ class WeatherPresenter: WeatherPresenterProtocol {
     func showWeather(for woeid: Int = 721943) {
         guard let url = URL(string: "\(Constants.API.baseURL)/location/\(woeid)") else { return }
         
-        service.fetch(url: url) { result in
+        service.fetch(dataType: WeatherResponse.self, from: url) { result in
             switch result {
             case .success(let response):
                 self.view.setWeather(weatherResponse: response)

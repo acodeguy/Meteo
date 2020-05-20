@@ -1,23 +1,23 @@
 import XCTest
 @testable import Meteo
 
-class WeatherAPIServiceTests: XCTestCase {
+class APIClientTests: XCTestCase {
     func testCallsTheCorrectURL() {
         let session = URLSessionMock()
-        let service = WeatherAPIServiceStub(session: session)
+        let service = APIClientStub(session: session)
         let validURL = URL(string: "\(Constants.API.baseURL)/location/721943")!
         
-        service.fetch(url: validURL) { _ in
+        service.fetch(dataType: WeatherResponse.self, from: validURL) { _ in
             XCTAssertEqual(session.lastURLRequested, validURL)
         }
     }
     
     func testReturnsTheLocationTitle() {
         let session = URLSessionMock()
-        let service = WeatherAPIServiceStub(session: session)
+        let service = APIClientStub(session: session)
         let dummyURL = URL(string: "dummy-url")!
         
-        service.fetch(url: dummyURL) { result in
+        service.fetch(dataType: WeatherResponse.self, from: dummyURL) { result in
             switch result {
             case .success(let response):
                 XCTAssertEqual(response.title, "Rome")
@@ -29,10 +29,10 @@ class WeatherAPIServiceTests: XCTestCase {
     
     func testReturnsTheCurrentTemperature() {
         let session = URLSessionMock()
-        let service = WeatherAPIServiceStub(session: session)
+        let service = APIClientStub(session: session)
         let dummyURL = URL(string: "dummy-url")!
         
-        service.fetch(url: dummyURL) { result in
+        service.fetch(dataType: WeatherResponse.self, from: dummyURL) { result in
             switch result {
             case .success(let response):
                 if let currentWeather = response.weather.first {

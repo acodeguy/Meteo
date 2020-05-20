@@ -1,13 +1,14 @@
 import Foundation
 
-class WeatherAPIService: ServiceProtocol {
+class APIClient: APIClientProtocol {
+    typealias APIClientResult<T> = (Result<T, Error>) -> Void
     var session: URLSessionProtocol
     
     required init(session: URLSessionProtocol) {
         self.session = session
     }
     
-    func fetch(url: URL, completionHandler: @escaping (Result<WeatherResponse, Error>) -> Void) {
+    func fetch<T: Decodable>(dataType: T.Type, from url: URL, completionHandler: @escaping APIClientResult<T>) {
         session.dataTask(with: url) { data, _, error in
             guard let data = data, error == nil else {
                 completionHandler(.failure(error!))
@@ -15,13 +16,11 @@ class WeatherAPIService: ServiceProtocol {
             }
                         
             do {
-                let response = try JSONDecoder().decode(WeatherResponse.self, from: data)
-                
-                completionHandler(.success(response))
+                let decodedJSON: T = try JSONDecoder().decode(T.self, from: data)
+                completionHandler(.success(decodedJSON))
             } catch let error {
                 completionHandler(.failure(error))
             }
-            
         }.resume()
     }
 }

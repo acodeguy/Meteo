@@ -4,7 +4,7 @@ import XCTest
 class WeatherPresenterTests: XCTestCase {
     func testShouldCallSetWeatherOnItsView() {
         let session = URLSessionMock()
-        let service = WeatherAPIServiceStub(session: session)
+        let service = APIClientStub(session: session)
         let view = WeatherViewControllerSpy()
         let sut = WeatherPresenter(view: view, service: service)
         view.presenter = sut
