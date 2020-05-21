@@ -180,10 +180,10 @@
 				49A5D32824616B4D004D4DBB /* Doubles */,
 				49A5D32D24616CAE004D4DBB /* APIClientTests.swift */,
 				49C18CF82473D36600E7AB46 /* LocationServiceTests.swift */,
+				49B0D110247717EF005A0CD3 /* URLBuilderTests.swift */,
 				4942F48E24571F9B007CF0C2 /* WeatherPresenterTests.swift */,
 				49C24FEA2464612B00233528 /* WeatherViewControllerTests.swift */,
 				4942F49024571F9B007CF0C2 /* Info.plist */,
-				49B0D110247717EF005A0CD3 /* URLBuilderTests.swift */,
 			);
 			path = MeteoTests;
 			sourceTree = "<group>";
