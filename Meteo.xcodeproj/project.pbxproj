@@ -38,6 +38,9 @@
 		49A5D33E24618935004D4DBB /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D33D24618935004D4DBB /* URLSessionProtocol.swift */; };
 		49A5D34024618C8F004D4DBB /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D33F24618C8F004D4DBB /* URLSessionDataTaskMock.swift */; };
 		49A5D34224618CDA004D4DBB /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A5D34124618CDA004D4DBB /* URLSessionMock.swift */; };
+		49B0D10F24771380005A0CD3 /* URLBuilderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B0D10E24771380005A0CD3 /* URLBuilderProtocol.swift */; };
+		49B0D111247717EF005A0CD3 /* URLBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B0D110247717EF005A0CD3 /* URLBuilderTests.swift */; };
+		49B0D114247719A2005A0CD3 /* URLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B0D113247719A2005A0CD3 /* URLBuilder.swift */; };
 		49BF03AE2466B73E005D5A53 /* DispatchQueueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF03AD2466B73E005D5A53 /* DispatchQueueProtocol.swift */; };
 		49BF03B12466B812005D5A53 /* DispatchQueue+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF03B02466B812005D5A53 /* DispatchQueue+Extension.swift */; };
 		49BF03B32466ED33005D5A53 /* DispatchQueueMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BF03B22466ED33005D5A53 /* DispatchQueueMock.swift */; };
@@ -97,6 +100,9 @@
 		49A5D33D24618935004D4DBB /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		49A5D33F24618C8F004D4DBB /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
 		49A5D34124618CDA004D4DBB /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		49B0D10E24771380005A0CD3 /* URLBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilderProtocol.swift; sourceTree = "<group>"; };
+		49B0D110247717EF005A0CD3 /* URLBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilderTests.swift; sourceTree = "<group>"; };
+		49B0D113247719A2005A0CD3 /* URLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLBuilder.swift; sourceTree = "<group>"; };
 		49BF03AD2466B73E005D5A53 /* DispatchQueueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueProtocol.swift; sourceTree = "<group>"; };
 		49BF03B02466B812005D5A53 /* DispatchQueue+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Extension.swift"; sourceTree = "<group>"; };
 		49BF03B22466ED33005D5A53 /* DispatchQueueMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueMock.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 				49A5D3172460603C004D4DBB /* Services */,
 				49A5D31624606035004D4DBB /* Protocols */,
 				49BF03AF2466B7DB005D5A53 /* Extensions */,
+				49B0D11224771985005A0CD3 /* Utilities */,
 				4942F47424571F9A007CF0C2 /* AppDelegate.swift */,
 				4942F47624571F9A007CF0C2 /* SceneDelegate.swift */,
 				4942F48024571F9B007CF0C2 /* Assets.xcassets */,
@@ -176,6 +183,7 @@
 				4942F48E24571F9B007CF0C2 /* WeatherPresenterTests.swift */,
 				49C24FEA2464612B00233528 /* WeatherViewControllerTests.swift */,
 				4942F49024571F9B007CF0C2 /* Info.plist */,
+				49B0D110247717EF005A0CD3 /* URLBuilderTests.swift */,
 			);
 			path = MeteoTests;
 			sourceTree = "<group>";
@@ -198,6 +206,7 @@
 				49C18CF22473D24600E7AB46 /* LocationManagerProtocol.swift */,
 				4925939124767CBE003816F2 /* LocationProtocol.swift */,
 				4925938924767656003816F2 /* LocationServiceProtocol.swift */,
+				49B0D10E24771380005A0CD3 /* URLBuilderProtocol.swift */,
 				49A5D33D24618935004D4DBB /* URLSessionProtocol.swift */,
 				49A5D31E246060E6004D4DBB /* WeatherPresenterProtocol.swift */,
 				49A5D320246060FF004D4DBB /* WeatherViewProtocol.swift */,
@@ -246,6 +255,14 @@
 				49A5D32B24616B9C004D4DBB /* WeatherViewControllerSpy.swift */,
 			);
 			path = Doubles;
+			sourceTree = "<group>";
+		};
+		49B0D11224771985005A0CD3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				49B0D113247719A2005A0CD3 /* URLBuilder.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		49BF03AF2466B7DB005D5A53 /* Extensions */ = {
@@ -399,8 +416,10 @@
 				49A5D31A24606057004D4DBB /* WeatherResponse.swift in Sources */,
 				49A5D32524606468004D4DBB /* WeatherPresenter.swift in Sources */,
 				4925939A24768645003816F2 /* URLSession+Extension.swift in Sources */,
+				49B0D10F24771380005A0CD3 /* URLBuilderProtocol.swift in Sources */,
 				49769BE12472DA1500C84945 /* LocationService.swift in Sources */,
 				49C18CF52473D28000E7AB46 /* LocationManagerDelegate.swift in Sources */,
+				49B0D114247719A2005A0CD3 /* URLBuilder.swift in Sources */,
 				49D194512464213900104508 /* Weather.swift in Sources */,
 				49A5D323246061CD004D4DBB /* APIClient.swift in Sources */,
 				49A5D321246060FF004D4DBB /* WeatherViewProtocol.swift in Sources */,
@@ -428,6 +447,7 @@
 				4925938E24767BAD003816F2 /* LocationManagerDummy.swift in Sources */,
 				49A5D34024618C8F004D4DBB /* URLSessionDataTaskMock.swift in Sources */,
 				4925939024767C4E003816F2 /* LocationServiceDummy.swift in Sources */,
+				49B0D111247717EF005A0CD3 /* URLBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
