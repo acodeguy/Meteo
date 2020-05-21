@@ -10,7 +10,8 @@ class WeatherViewControllerTests: XCTestCase {
         service = APIClientStub(session: URLSessionMock())
         sut = WeatherViewController()
         sut.dispatchQueue = DispatchQueueMock()
-        presenter = WeatherPresenterStub(view: sut, service: service)
+        let locationServiceDummy = LocationServiceDummy(manager: LocationManagerDummy())
+        presenter = WeatherPresenterStub(view: sut, service: service, locationService: locationServiceDummy)
         sut.presenter = presenter
         presenter.showWeather(for: 0)
     }

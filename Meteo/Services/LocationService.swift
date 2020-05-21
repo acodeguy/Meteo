@@ -1,15 +1,15 @@
 import CoreLocation
 
-class LocationService: NSObject {
+class LocationService: NSObject, LocationServiceProtocol {
     var locationManager: LocationManagerProtocol
-    private var currentLocationCallback: ((CLLocation) -> Void)?
+    private var currentLocationCallback: ((LocationProtocol) -> Void)?
     
-    init(manager: LocationManagerProtocol = CLLocationManager()) {
+    required init(manager: LocationManagerProtocol = CLLocationManager()) {
         self.locationManager = manager
         super.init()
     }
     
-    func getCurrentLocation(completion: @escaping (CLLocation) -> Void) {
+    func getCurrentLocation(completion: @escaping (LocationProtocol) -> Void) {
         currentLocationCallback = { location in
             completion(location)
         }
@@ -20,7 +20,7 @@ class LocationService: NSObject {
         self.locationManager.startUpdatingLocation()
     }
     
-    private func locationCallBack(locations: [CLLocation]) {
+    private func locationCallBack(locations: [LocationProtocol]) {
         guard let location = locations.last else { return }
         
         self.currentLocationCallback?(location)
@@ -29,7 +29,7 @@ class LocationService: NSObject {
 }
 
 extension LocationService: LocationManagerDelegate {
-    func locationManager(_ manager: LocationManagerProtocol, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: LocationManagerProtocol, didUpdateLocations locations: [LocationProtocol]) {
         locationCallBack(locations: locations)
     }
 

@@ -3,10 +3,18 @@ import Foundation
 class WeatherPresenter: WeatherPresenterProtocol {
     var view: WeatherViewProtocol
     var service: APIClientProtocol
+    var locationService: LocationServiceProtocol
     
-    required init(view: WeatherViewProtocol, service: APIClientProtocol) {
+    required init(view: WeatherViewProtocol, service: APIClientProtocol, locationService: LocationServiceProtocol) {
         self.view = view
         self.service = service
+        self.locationService = locationService
+    }
+    
+    func updateCurrentLocation() {
+        locationService.getCurrentLocation { currentLocation in
+            print(currentLocation)
+        }
     }
     
     func showWeather(for woeid: Int = 721943) {

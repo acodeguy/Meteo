@@ -12,7 +12,7 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         setupUI()
         
         if let presenter = presenter {
-            presenter.showWeather(for: 721943)
+            presenter.updateCurrentLocation()
         }
     }
     

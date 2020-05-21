@@ -8,7 +8,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let service = APIClient(session: URLSession.shared)
         let view = WeatherViewController()
-        let presenter = WeatherPresenter(view: view, service: service)
+        let presenter = WeatherPresenter(view: view, service: service, locationService: LocationService())
         view.presenter = presenter
         
         let window = UIWindow(windowScene: windowScene)
