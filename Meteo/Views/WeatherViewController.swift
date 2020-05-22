@@ -5,6 +5,7 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
     var dispatchQueue: DispatchQueueProtocol = DispatchQueue.main
     let titleLabel = UILabel()
     let temperatureLabel = UILabel()
+    let informationPanel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,19 +24,24 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshWeather))
         
         view.addSubview(titleLabel)
-        titleLabel.textColor = .label
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(temperatureLabel)
-        temperatureLabel.textColor = .label
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(informationPanel)
+        informationPanel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
             temperatureLabel.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
-            temperatureLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16)
+            temperatureLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            
+            informationPanel.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+            informationPanel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            informationPanel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         ])
     }
     
@@ -47,7 +53,13 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
             
             let temperature = round(weather.temperature)
             self.temperatureLabel.text = "\(temperature) ℃"
+            
+            self.setInformationPanel("Weather updated at \(Date().toShortTime())")
         }
+    }
+    
+    func setInformationPanel(_ text: String) {
+        self.informationPanel.text = text
     }
     
     @objc private func refreshWeather() {

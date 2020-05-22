@@ -30,6 +30,7 @@ class LocationService: NSObject, LocationServiceProtocol {
 
 extension LocationService: LocationManagerDelegate {
     func locationManager(_ manager: LocationManagerProtocol, didUpdateLocations locations: [LocationProtocol]) {
+        manager.stopUpdatingLocation()
         locationCallBack(locations: locations)
     }
 
@@ -40,6 +41,7 @@ extension LocationService: LocationManagerDelegate {
 
 extension LocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        manager.stopUpdatingLocation()
         locationCallBack(locations: locations)
     }
     

@@ -13,6 +13,7 @@ class WeatherPresenter: WeatherPresenterProtocol {
     }
     
     func updateCurrentLocation() {
+        view.setInformationPanel("Updating your location...")
         locationService.getCurrentLocation { currentLocation in
             self.getLocationMatches(from: currentLocation) { locationMatches in
                 guard let woeid = locationMatches.first?.woeid else { return }
@@ -23,6 +24,7 @@ class WeatherPresenter: WeatherPresenterProtocol {
     }
     
     func getLocationMatches(from coordinate: LocationProtocol, completion: @escaping ([WeatherLocation]) -> Void) {
+        view.setInformationPanel("Getting location matches from API...")
         let query = "\(coordinate.latitude),\(coordinate.longitude)"
         guard let url = urlBuilder?.build(for: .locations, with: query) else { return }
         
