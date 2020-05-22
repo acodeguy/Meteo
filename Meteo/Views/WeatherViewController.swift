@@ -17,6 +17,8 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
     }
     
     private func setupUI() {
+        title = "Meteo"
+        
         view.addSubview(titleLabel)
         titleLabel.textColor = .white
         titleLabel.backgroundColor = .black
