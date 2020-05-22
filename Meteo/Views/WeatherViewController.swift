@@ -20,6 +20,8 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         title = "Meteo"
         view.backgroundColor = .systemBackground
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshWeather))
+        
         view.addSubview(titleLabel)
         titleLabel.textColor = .label
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -37,10 +39,6 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         ])
     }
     
-    private func darkMode() -> Bool {
-        return traitCollection.userInterfaceStyle == .dark
-    }
-    
     func setWeather(weatherResponse: WeatherResponse) {
         dispatchQueue.async {
             self.titleLabel.text = "\(weatherResponse.title), \(weatherResponse.locationInfo.countryName)"
@@ -50,5 +48,9 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
             let temperature = round(weather.temperature)
             self.temperatureLabel.text = "\(temperature) ℃"
         }
+    }
+    
+    @objc private func refreshWeather() {
+        presenter?.updateCurrentLocation()
     }
 }
