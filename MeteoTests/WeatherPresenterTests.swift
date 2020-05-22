@@ -1,4 +1,5 @@
 import XCTest
+import CoreLocation
 @testable import Meteo
 
 class WeatherPresenterTests: XCTestCase {
@@ -15,14 +16,14 @@ class WeatherPresenterTests: XCTestCase {
     }
     
     func testShouldCallSetWeatherOnItsView() {
-        let session = URLSessionMock()
-        let service = APIClientStub(session: session)
+        let client = APIClientStub(session: URLSessionMock())
         let view = WeatherViewControllerSpy()
-        let locationService = LocationServiceDummy(manager: LocationManagerMock())
-        let sut = WeatherPresenter(view: view, service: service, locationService: locationService)
+        let locationService = LocationServiceDummy(manager: LocationManagerDummy())
+        let sut = WeatherPresenter(view: view, service: client, locationService: locationService)
+        sut.urlBuilder = URLBuilder(baseURL: "dummy")
         view.presenter = sut
         
-        sut.showWeather()
+        sut.showWeather(for: 123456)
         
         XCTAssertEqual(view.numberOfTimesSetWeatherWasCalled, 1, "setWeather was not called the required number of times")
     }

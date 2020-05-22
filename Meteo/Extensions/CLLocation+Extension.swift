@@ -1,7 +1,11 @@
 import CoreLocation
 
 extension CLLocation: LocationProtocol {
-    var locationCoordinate: LocationCoordinate2D {
-        return self.coordinate
+    var latitude: Double {
+        return self.coordinate.latitude
+    }
+    
+    var longitude: Double {
+        return self.coordinate.longitude
     }
 }

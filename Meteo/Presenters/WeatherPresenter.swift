@@ -14,13 +14,29 @@ class WeatherPresenter: WeatherPresenterProtocol {
     
     func updateCurrentLocation() {
         locationService.getCurrentLocation { currentLocation in
-            print(currentLocation)
+            self.getLocationMatches(from: currentLocation) { locationMatches in
+                guard let woeid = locationMatches.first?.woeid else { return }
+                
+                self.showWeather(for: woeid)
+            }
         }
     }
     
-    func showWeather(for woeid: Int = 721943) {
-        urlBuilder = URLBuilder(baseURL: Constants.API.baseURL)
+    func getLocationMatches(from coordinate: LocationProtocol, completion: @escaping ([WeatherLocation]) -> Void) {
+        let query = "\(coordinate.latitude),\(coordinate.longitude)"
+        guard let url = urlBuilder?.build(for: .locations, with: query) else { return }
         
+        service.fetch(dataType: [WeatherLocation].self, from: url) { result in
+            switch result {
+            case .success(let locations):
+                completion(locations)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func showWeather(for woeid: Int) {
         guard let url = urlBuilder?.build(for: .woeid, with: String(woeid)) else { return }
         
         service.fetch(dataType: WeatherResponse.self, from: url) { result in

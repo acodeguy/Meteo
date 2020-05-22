@@ -1,5 +1,6 @@
 import Foundation
 
 protocol LocationProtocol {
-    var locationCoordinate: LocationCoordinate2D { get }
+    var latitude: Double { get }
+    var longitude: Double { get }
 }

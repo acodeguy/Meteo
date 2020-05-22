@@ -13,8 +13,8 @@ class LocationServiceTests: XCTestCase {
         sut.getCurrentLocation { location in
             completionExpectation.fulfill()
             
-            XCTAssertEqual(location.locationCoordinate.latitude, expectedLocation.locationCoordinate.latitude)
-            XCTAssertEqual(location.locationCoordinate.longitude, expectedLocation.locationCoordinate.longitude)
+            XCTAssertEqual(location.latitude, expectedLocation.latitude)
+            XCTAssertEqual(location.longitude, expectedLocation.longitude)
         }
         wait(for: [completionExpectation], timeout: 3)
     }
