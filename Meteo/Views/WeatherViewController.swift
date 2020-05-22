@@ -18,15 +18,14 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
     
     private func setupUI() {
         title = "Meteo"
+        view.backgroundColor = .systemBackground
         
         view.addSubview(titleLabel)
-        titleLabel.textColor = .white
-        titleLabel.backgroundColor = .black
+        titleLabel.textColor = .label
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(temperatureLabel)
-        temperatureLabel.textColor = .white
-        temperatureLabel.backgroundColor = .black
+        temperatureLabel.textColor = .label
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -36,6 +35,10 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
             temperatureLabel.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
             temperatureLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16)
         ])
+    }
+    
+    private func darkMode() -> Bool {
+        return traitCollection.userInterfaceStyle == .dark
     }
     
     func setWeather(weatherResponse: WeatherResponse) {
