@@ -18,7 +18,7 @@ class WeatherPresenterTests: XCTestCase {
         let session = URLSessionMock()
         let service = APIClientStub(session: session)
         let view = WeatherViewControllerSpy()
-        let locationService = LocationService(manager: LocationManagerMock())
+        let locationService = LocationServiceDummy(manager: LocationManagerMock())
         let sut = WeatherPresenter(view: view, service: service, locationService: locationService)
         view.presenter = sut
         
