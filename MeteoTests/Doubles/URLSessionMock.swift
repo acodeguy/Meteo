@@ -4,10 +4,7 @@ import Foundation
 class URLSessionMock: URLSessionProtocol {
     var lastURLRequested: URL?
     
-    func dataTask(
-        with url: URL,
-        completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
-    ) -> URLSessionDataTask {
+    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
         let data = Constants.API.jsonResponseExample.data(using: .utf8)
         defer { completionHandler(data, nil, nil) }
         lastURLRequested = url

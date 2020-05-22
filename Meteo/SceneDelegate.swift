@@ -6,13 +6,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let service = WeatherAPIService(session: URLSession.shared)
+        let service = APIClient(session: URLSession.shared)
         let view = WeatherViewController()
-        let presenter = WeatherPresenter(view: view, service: service)
+        let presenter = WeatherPresenter(view: view, service: service, locationService: LocationService())
+        presenter.urlBuilder = URLBuilder(baseURL: Constants.API.baseURL)
         view.presenter = presenter
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = view
+        let navigationController = UINavigationController(rootViewController: view)
+        window.rootViewController = navigationController
         self.window = window
         window.makeKeyAndVisible()
     }

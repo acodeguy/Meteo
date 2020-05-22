@@ -2,17 +2,18 @@ import XCTest
 @testable import Meteo
 
 class WeatherViewControllerTests: XCTestCase {
-    private var service: WeatherAPIServiceStub!
+    private var service: APIClientStub!
     private var sut: WeatherViewController!
     private var presenter: WeatherPresenterStub!
     
     override func setUp() {
-        service = WeatherAPIServiceStub(session: URLSessionMock())
+        service = APIClientStub(session: URLSessionMock())
         sut = WeatherViewController()
         sut.dispatchQueue = DispatchQueueMock()
-        presenter = WeatherPresenterStub(view: sut, service: service)
+        let locationServiceDummy = LocationServiceDummy(manager: LocationManagerDummy())
+        presenter = WeatherPresenterStub(view: sut, service: service, locationService: locationServiceDummy)
         sut.presenter = presenter
-        presenter.showWeather(for: String())
+        presenter.showWeather(for: 0)
     }
     
     override func tearDown() {
@@ -22,7 +23,7 @@ class WeatherViewControllerTests: XCTestCase {
     }
     
     func testSetsTheLocationLabel() {
-        XCTAssertEqual(sut.titleLabel.text, "Rome")
+        XCTAssertEqual(sut.titleLabel.text, "Rome, Italy")
     }
     
     func testSetsTheCurrentTemperature() {
