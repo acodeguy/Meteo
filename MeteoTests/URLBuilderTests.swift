@@ -5,7 +5,7 @@ class URLBuilderTests: XCTestCase {
     var builder: URLBuilderProtocol!
     
     override func setUp() {
-        builder = URLBuilder(baseURL: "https://www.metaweather.com/api")
+        builder = URLBuilder(baseURL: "https://www.metaweather.com")
     }
     
     override func tearDown() {

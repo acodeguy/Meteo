@@ -2,8 +2,8 @@ import Foundation
 
 enum Endpoint: String {
     case icon = "/static/img/weather"
-    case locations = "/location/search/?lattlong="
-    case woeid = "/location"
+    case locations = "/api/location/search/?lattlong="
+    case woeid = "/api/location"
 }
 
 class URLBuilder: URLBuilderProtocol {
