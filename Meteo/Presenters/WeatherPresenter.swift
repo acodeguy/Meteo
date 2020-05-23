@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class WeatherPresenter: WeatherPresenterProtocol {
     var view: WeatherViewProtocol
@@ -45,6 +45,25 @@ class WeatherPresenter: WeatherPresenterProtocol {
             switch result {
             case .success(let response):
                 self.view.setWeather(weatherResponse: response)
+                
+                guard let weather = response.weather.first else { return }
+                
+                self.fetchWeatherIcon(for: weather.stateAbbreviation)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func fetchWeatherIcon(for state: String) {
+        guard let url = urlBuilder?.build(for: .icon, with: state) else { return }
+                
+        service.fetchRawData(from: url) { result in
+            switch result {
+            case .success(let data):
+                if let image = UIImage(data: data) {
+                    self.view.setWeatherImage(with: image)
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }

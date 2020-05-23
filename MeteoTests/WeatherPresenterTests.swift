@@ -3,28 +3,56 @@ import CoreLocation
 @testable import Meteo
 
 class WeatherPresenterTests: XCTestCase {
+    private var urlSessionMock: URLSessionMock!
+    private var clientStub: APIClientStub!
+    private var weatherViewControllerSpy: WeatherViewControllerSpy!
+    private var locationManagerDummy: LocationManagerDummy!
+    private var locationServiceDummy: LocationServiceDummy!
+    private var locationServiceSpy: LocationServiceSpy!
+    
+    override func setUp() {
+        urlSessionMock = URLSessionMock()
+        clientStub = APIClientStub(session: urlSessionMock)
+        weatherViewControllerSpy = WeatherViewControllerSpy()
+        locationManagerDummy = LocationManagerDummy()
+        locationServiceSpy = LocationServiceSpy(manager: locationManagerDummy)
+        locationServiceDummy = LocationServiceDummy(manager: locationManagerDummy)
+    }
+    
+    override func tearDown() {
+        urlSessionMock = nil
+        clientStub = nil
+        weatherViewControllerSpy = nil
+        locationManagerDummy = nil
+        locationServiceSpy = nil
+    }
+    
     func testShouldCallGetCurrentLocationOnItsLocationService() {
-        let service = APIClientStub(session: URLSessionMock())
-        let view = WeatherViewControllerSpy()
-        let locationService = LocationServiceSpy(manager: LocationManagerDummy())
-        let sut = WeatherPresenter(view: view, service: service, locationService: locationService)
-        view.presenter = sut
+        let sut = WeatherPresenter(view: weatherViewControllerSpy, service: clientStub, locationService: locationServiceSpy)
+        weatherViewControllerSpy.presenter = sut
         
         sut.updateCurrentLocation()
         
-        XCTAssertEqual(locationService.numberOfTimesGetCurrentLocationWasCalled, 1, "getCurrentLocation was not called the expected number of times")
+        XCTAssertEqual(locationServiceSpy.numberOfTimesGetCurrentLocationWasCalled, 1, "getCurrentLocation was not called the expected number of times")
     }
     
     func testShouldCallSetWeatherOnItsView() {
-        let client = APIClientStub(session: URLSessionMock())
-        let view = WeatherViewControllerSpy()
-        let locationService = LocationServiceDummy(manager: LocationManagerDummy())
-        let sut = WeatherPresenter(view: view, service: client, locationService: locationService)
+        let sut = WeatherPresenter(view: weatherViewControllerSpy, service: clientStub, locationService: locationServiceSpy)
         sut.urlBuilder = URLBuilder(baseURL: "dummy")
-        view.presenter = sut
+        weatherViewControllerSpy.presenter = sut
         
         sut.showWeather(for: 123456)
         
-        XCTAssertEqual(view.numberOfTimesSetWeatherWasCalled, 1, "setWeather was not called the required number of times")
+        XCTAssertEqual(weatherViewControllerSpy.numberOfTimesSetWeatherWasCalled, 1, "setWeather was not called the required number of times")
+    }
+    
+    func testShouldCallSetWetherImage() {
+        let sut = WeatherPresenter(view: weatherViewControllerSpy, service: clientStub, locationService: locationServiceDummy)
+        sut.urlBuilder = URLBuilder(baseURL: "dummy")
+        weatherViewControllerSpy.presenter = sut
+        
+        sut.fetchWeatherIcon(for: "lc")
+        
+        XCTAssertEqual(weatherViewControllerSpy.numberOfTimesSetWeatherImageWasCalled, 1, "setWeatherImage was not called the expected number of times")
     }
 }
