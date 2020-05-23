@@ -2,7 +2,7 @@ import CoreLocation
 @testable import Meteo
 
 class LocationManagerMock: LocationManagerProtocol {
-    var locationManagerDelegate: LocationManagerDelegate?
+    weak var locationManagerDelegate: LocationManagerDelegate?
     var desiredAccuracy: CLLocationAccuracy = 0
     var location: (() -> CLLocation)?
     
@@ -12,7 +12,6 @@ class LocationManagerMock: LocationManagerProtocol {
         locationManagerDelegate?.locationManager(self, didUpdateLocations: [location])
     }
     
-    func requestWhenInUseAuthorization() {
-        
-    }
+    func requestWhenInUseAuthorization() {}
+    func stopUpdatingLocation() {}
 }
