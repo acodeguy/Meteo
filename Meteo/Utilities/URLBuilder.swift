@@ -1,7 +1,7 @@
 import Foundation
 
 enum Endpoint: String {
-    case icon = "/static/img/weather"
+    case icon = "/static/img/weather/png"
     case locations = "/api/location/search/?lattlong="
     case woeid = "/api/location"
 }
