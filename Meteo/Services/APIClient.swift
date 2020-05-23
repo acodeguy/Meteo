@@ -23,4 +23,16 @@ class APIClient: APIClientProtocol {
             }
         }.resume()
     }
+    
+    func fetchRawData(from url: URL, completionHandler: @escaping (Result<Data, Error>) -> Void) {
+        session.dataTask(with: url) { data, _, error in
+            guard let data = data, error == nil else {
+                completionHandler(.failure(error!))
+                return
+            }
+            
+            completionHandler(.success(data))
+            return
+        }.resume()
+    }
 }

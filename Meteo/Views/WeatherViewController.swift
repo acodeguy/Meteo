@@ -6,6 +6,7 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
     let titleLabel = UILabel()
     let temperatureLabel = UILabel()
     let informationPanel = UILabel()
+    var weatherIconImageView: UIImageView = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,10 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshWeather))
         
+        view.addSubview(weatherIconImageView)
+        weatherIconImageView.contentMode = .scaleAspectFit
+        weatherIconImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -33,8 +38,13 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         informationPanel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            weatherIconImageView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 50),
+            weatherIconImageView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 24),
+            weatherIconImageView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 24),
+            weatherIconImageView.heightAnchor.constraint(equalToConstant: 300),
+            
+            titleLabel.centerXAnchor.constraint(equalTo: weatherIconImageView.centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: weatherIconImageView.bottomAnchor, constant: 2),
             
             temperatureLabel.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
             temperatureLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
@@ -55,6 +65,12 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
             self.temperatureLabel.text = "\(temperature) ℃"
             
             self.setInformationPanel("Weather updated at \(Date().toShortTime())")
+        }
+    }
+    
+    func setWeatherImage(with image: UIImage) {
+        DispatchQueue.main.async {
+            self.weatherIconImageView.image = image
         }
     }
     

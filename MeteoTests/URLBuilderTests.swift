@@ -5,7 +5,7 @@ class URLBuilderTests: XCTestCase {
     var builder: URLBuilderProtocol!
     
     override func setUp() {
-        builder = URLBuilder(baseURL: "https://www.metaweather.com/api")
+        builder = URLBuilder(baseURL: "https://www.metaweather.com")
     }
     
     override func tearDown() {
@@ -23,6 +23,13 @@ class URLBuilderTests: XCTestCase {
         let url = builder.build(for: .locations, with: "123,-456")
         
         let expectedURL = URL(string: "https://www.metaweather.com/api/location/search/?lattlong=123,-456")
+        XCTAssertEqual(url, expectedURL)
+    }
+    
+    func testReturnsTheCorrectURLWhenGivenAWeatherStateAbbreviation() {
+        let url = builder.build(for: .icon, with: "lc")
+        
+        let expectedURL = URL(string: "\(builder.baseURLString)/static/img/weather/png/lc.png")
         XCTAssertEqual(url, expectedURL)
     }
 }
