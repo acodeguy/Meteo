@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 @testable import Meteo
 
 class APIClientStub: APIClientProtocol {
@@ -20,5 +20,13 @@ class APIClientStub: APIClientProtocol {
                 print(error.localizedDescription)
             }
         }.resume()
+    }
+    
+    func fetchRawData(from url: URL, completionHandler: @escaping DataResult) {
+        if let image = UIImage(named: "swift.png") {
+            if let data = image.pngData() {
+                completionHandler(.success(data))
+            }
+        }
     }
 }

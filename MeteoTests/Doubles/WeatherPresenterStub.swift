@@ -14,7 +14,7 @@ class WeatherPresenterStub: WeatherPresenterProtocol {
     
     func showWeather(for woeid: Int) {
         let parentLocation = ParentLocation(countryName: "Italy")
-        let weather = [Weather(temperature: 27.29)]
+        let weather = [Weather(temperature: 27.29, state: "Sunny", stateAbbreviation: "s")]
         let response = WeatherResponse(title: "Rome", weather: weather, locationInfo: parentLocation)
         self.view.setWeather(weatherResponse: response)
     }
