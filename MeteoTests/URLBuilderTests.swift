@@ -29,7 +29,7 @@ class URLBuilderTests: XCTestCase {
     func testReturnsTheCorrectURLWhenGivenAWeatherStateAbbreviation() {
         let url = builder.build(for: .icon, with: "lc")
         
-        let expectedURL = URL(string: "\(builder.baseURLString)/static/img/weather/lc.svg")
+        let expectedURL = URL(string: "\(builder.baseURLString)/static/img/weather/lc.png")
         XCTAssertEqual(url, expectedURL)
     }
 }

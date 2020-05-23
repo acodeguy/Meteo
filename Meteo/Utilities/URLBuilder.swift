@@ -16,7 +16,7 @@ class URLBuilder: URLBuilderProtocol {
     func build(for endpoint: Endpoint, with query: String) -> URL? {
         switch endpoint {
         case.icon:
-            return URL(string: "\(baseURLString)\(endpoint.rawValue)/\(query).svg")
+            return URL(string: "\(baseURLString)\(endpoint.rawValue)/\(query).png")
         case .locations:
             return URL(string: "\(baseURLString)\(endpoint.rawValue)\(query)")
         case .woeid:
