@@ -25,4 +25,11 @@ class URLBuilderTests: XCTestCase {
         let expectedURL = URL(string: "https://www.metaweather.com/api/location/search/?lattlong=123,-456")
         XCTAssertEqual(url, expectedURL)
     }
+    
+    func testReturnsTheCorrectURLWhenGivenAWeatherStateAbbreviation() {
+        let url = builder.build(for: .icon, with: "lc")
+        
+        let expectedURL = URL(string: "\(builder.baseURLString)/static/img/weather/lc.svg")
+        XCTAssertEqual(url, expectedURL)
+    }
 }

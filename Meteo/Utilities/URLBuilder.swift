@@ -1,8 +1,9 @@
 import Foundation
 
 enum Endpoint: String {
-    case woeid = "/location"
+    case icon = "/static/img/weather"
     case locations = "/location/search/?lattlong="
+    case woeid = "/location"
 }
 
 class URLBuilder: URLBuilderProtocol {
@@ -14,10 +15,12 @@ class URLBuilder: URLBuilderProtocol {
     
     func build(for endpoint: Endpoint, with query: String) -> URL? {
         switch endpoint {
-        case .woeid:
-            return URL(string: "\(baseURLString)\(endpoint.rawValue)/\(query)")
+        case.icon:
+            return URL(string: "\(baseURLString)\(endpoint.rawValue)/\(query).svg")
         case .locations:
             return URL(string: "\(baseURLString)\(endpoint.rawValue)\(query)")
+        case .woeid:
+            return URL(string: "\(baseURLString)\(endpoint.rawValue)/\(query)")
         }
     }
 }
