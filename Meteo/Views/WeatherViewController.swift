@@ -44,7 +44,7 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
             weatherIconImageView.heightAnchor.constraint(equalToConstant: 300),
             
             titleLabel.centerXAnchor.constraint(equalTo: weatherIconImageView.centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: weatherIconImageView.bottomAnchor, constant: 2),
+            titleLabel.centerYAnchor.constraint(equalTo: weatherIconImageView.bottomAnchor, constant: 50),
             
             temperatureLabel.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
             temperatureLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
