@@ -30,9 +30,12 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         
         view.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.font = UIFont(name: "Avenir", size: 50)
         
         view.addSubview(temperatureLabel)
         temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
+        temperatureLabel.font = UIFont(name: "Avenir", size: 50)
         
         view.addSubview(informationPanel)
         informationPanel.translatesAutoresizingMaskIntoConstraints = false
@@ -43,11 +46,14 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
             weatherIconImageView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: 24),
             weatherIconImageView.heightAnchor.constraint(equalToConstant: 300),
             
-            titleLabel.centerXAnchor.constraint(equalTo: weatherIconImageView.centerXAnchor),
             titleLabel.centerYAnchor.constraint(equalTo: weatherIconImageView.bottomAnchor, constant: 50),
+            titleLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            titleLabel.heightAnchor.constraint(equalToConstant: 150),
             
-            temperatureLabel.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
-            temperatureLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            temperatureLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
+            temperatureLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            temperatureLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             
             informationPanel.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
             informationPanel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
@@ -57,12 +63,12 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
     
     func setWeather(weatherResponse: WeatherResponse) {
         dispatchQueue.async {
-            self.titleLabel.text = "\(weatherResponse.title), \(weatherResponse.locationInfo.countryName)"
+            self.titleLabel.attributedText = "\(weatherResponse.title), \(weatherResponse.locationInfo.countryName)".center()
             
             guard let weather = weatherResponse.weather.first else { return }
             
             let temperature = round(weather.temperature)
-            self.temperatureLabel.text = "\(temperature) ℃"
+            self.temperatureLabel.attributedText = "\(temperature) ℃".center()
             
             self.setInformationPanel("Weather updated at \(Date().toShortTime())")
         }
