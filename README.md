@@ -1,5 +1,6 @@
-# Meteo
+# Meteo 
 ### An iOS weather app built in native Swift, using TDD and the Meta Weather API
+[![Build Status](https://travis-ci.org/acodeguy/Meteo.svg?branch=master)](https://travis-ci.org/acodeguy/Meteo)
 
 ## Background
 Having only learned to create apps using Apple's flavour of MVC, it became necessary to learn more ways. This app is tes-driven, using Model-View-Presenter as its design pattern, to increase testability by separating its concerns more than MVC often allows. 
