@@ -4,4 +4,4 @@ osx_image: xcode11.4
 xcode_project: Meteo.xcodeproj
 xcode_scheme: Meteo
 
-script: xcrun xcodebuild test -project Meteo.xcodeproj -scheme Meteo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=13.5'
+script: xcrun xcodebuild test -project Meteo.xcodeproj -scheme Meteo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=13.4'
