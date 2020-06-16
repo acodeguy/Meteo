@@ -1,3 +1,4 @@
+// swiftlint:disable line_length
 import XCTest
 import CoreLocation
 @testable import Meteo
