@@ -56,6 +56,10 @@
 		49C24FEB2464612B00233528 /* WeatherViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C24FEA2464612B00233528 /* WeatherViewControllerTests.swift */; };
 		49C24FED246461CA00233528 /* WeatherPresenterStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C24FEC246461CA00233528 /* WeatherPresenterStub.swift */; };
 		49D194512464213900104508 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D194502464213900104508 /* Weather.swift */; };
+		EBB7EF7424990E4D00E2D80B /* PreferencesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */; };
+		EBB7EF762499152500E2D80B /* PreferencesManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF752499152500E2D80B /* PreferencesManagerProtocol.swift */; };
+		EBB7EF782499155200E2D80B /* PreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF772499155200E2D80B /* PreferencesService.swift */; };
+		EBB7EF7A2499159300E2D80B /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF792499159300E2D80B /* UserDefaults+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +126,10 @@
 		49C24FEA2464612B00233528 /* WeatherViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewControllerTests.swift; sourceTree = "<group>"; };
 		49C24FEC246461CA00233528 /* WeatherPresenterStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenterStub.swift; sourceTree = "<group>"; };
 		49D194502464213900104508 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManagerTests.swift; sourceTree = "<group>"; };
+		EBB7EF752499152500E2D80B /* PreferencesManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManagerProtocol.swift; sourceTree = "<group>"; };
+		EBB7EF772499155200E2D80B /* PreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesService.swift; sourceTree = "<group>"; };
+		EBB7EF792499159300E2D80B /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +196,7 @@
 				49A5D32824616B4D004D4DBB /* Doubles */,
 				49A5D32D24616CAE004D4DBB /* APIClientTests.swift */,
 				49C18CF82473D36600E7AB46 /* LocationServiceTests.swift */,
+				EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */,
 				49B0D110247717EF005A0CD3 /* URLBuilderTests.swift */,
 				4942F48E24571F9B007CF0C2 /* WeatherPresenterTests.swift */,
 				49C24FEA2464612B00233528 /* WeatherViewControllerTests.swift */,
@@ -214,6 +223,7 @@
 				49C18CF22473D24600E7AB46 /* LocationManagerProtocol.swift */,
 				4925939124767CBE003816F2 /* LocationProtocol.swift */,
 				4925938924767656003816F2 /* LocationServiceProtocol.swift */,
+				EBB7EF752499152500E2D80B /* PreferencesManagerProtocol.swift */,
 				49B0D10E24771380005A0CD3 /* URLBuilderProtocol.swift */,
 				49A5D33D24618935004D4DBB /* URLSessionProtocol.swift */,
 				49A5D31E246060E6004D4DBB /* WeatherPresenterProtocol.swift */,
@@ -226,8 +236,9 @@
 			isa = PBXGroup;
 			children = (
 				49A5D322246061CD004D4DBB /* APIClient.swift */,
-				49769BE02472DA1500C84945 /* LocationService.swift */,
 				49B0D11D2477D0F4005A0CD3 /* Location.swift */,
+				49769BE02472DA1500C84945 /* LocationService.swift */,
+				EBB7EF772499155200E2D80B /* PreferencesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -283,8 +294,9 @@
 				49C18CF62473D2B100E7AB46 /* CLLocationManager+Extension.swift */,
 				493F9DDF2477F3C500E066C1 /* Date+Extension.swift */,
 				49BF03B02466B812005D5A53 /* DispatchQueue+Extension.swift */,
-				4925939924768645003816F2 /* URLSession+Extension.swift */,
 				4965AF7B247A9C6800DD620A /* String+Extension.swift */,
+				4925939924768645003816F2 /* URLSession+Extension.swift */,
+				EBB7EF792499159300E2D80B /* UserDefaults+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -429,8 +441,11 @@
 				49A5D31F246060E6004D4DBB /* WeatherPresenterProtocol.swift in Sources */,
 				4942F47F24571F9A007CF0C2 /* Meteo.xcdatamodeld in Sources */,
 				4925939824768396003816F2 /* CLLocation+Extension.swift in Sources */,
+				EBB7EF7A2499159300E2D80B /* UserDefaults+Extensions.swift in Sources */,
 				49A5D31A24606057004D4DBB /* WeatherResponse.swift in Sources */,
+				EBB7EF782499155200E2D80B /* PreferencesService.swift in Sources */,
 				49A5D32524606468004D4DBB /* WeatherPresenter.swift in Sources */,
+				EBB7EF762499152500E2D80B /* PreferencesManagerProtocol.swift in Sources */,
 				4925939A24768645003816F2 /* URLSession+Extension.swift in Sources */,
 				49B0D10F24771380005A0CD3 /* URLBuilderProtocol.swift in Sources */,
 				49769BE12472DA1500C84945 /* LocationService.swift in Sources */,
@@ -463,6 +478,7 @@
 				4925938E24767BAD003816F2 /* LocationManagerDummy.swift in Sources */,
 				49A5D34024618C8F004D4DBB /* URLSessionDataTaskMock.swift in Sources */,
 				4925939024767C4E003816F2 /* LocationServiceDummy.swift in Sources */,
+				EBB7EF7424990E4D00E2D80B /* PreferencesManagerTests.swift in Sources */,
 				49B0D111247717EF005A0CD3 /* URLBuilderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
