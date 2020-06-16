@@ -1,0 +1,3 @@
+protocol PreferencesViewProtocol {
+    func displayPreferences()
+}

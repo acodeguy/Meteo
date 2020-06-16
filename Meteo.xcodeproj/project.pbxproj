@@ -60,6 +60,12 @@
 		EBB7EF762499152500E2D80B /* PreferencesManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF752499152500E2D80B /* PreferencesManagerProtocol.swift */; };
 		EBB7EF782499155200E2D80B /* PreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF772499155200E2D80B /* PreferencesService.swift */; };
 		EBB7EF7A2499159300E2D80B /* UserDefaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF792499159300E2D80B /* UserDefaults+Extensions.swift */; };
+		EBB7EF7C2499169500E2D80B /* PreferencesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF7B2499169500E2D80B /* PreferencesPresenterTests.swift */; };
+		EBB7EF7E249919B900E2D80B /* PreferencesViewSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF7D249919B900E2D80B /* PreferencesViewSpy.swift */; };
+		EBB7EF80249919DB00E2D80B /* PreferencesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF7F249919DB00E2D80B /* PreferencesPresenter.swift */; };
+		EBB7EF8224991A0900E2D80B /* PreferencesViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF8124991A0900E2D80B /* PreferencesViewProtocol.swift */; };
+		EBB7EF8424991A2C00E2D80B /* PreferencesServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF8324991A2C00E2D80B /* PreferencesServiceDummy.swift */; };
+		EBB7EF8624991A5100E2D80B /* PreferencesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF8524991A5100E2D80B /* PreferencesPresenterProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +136,12 @@
 		EBB7EF752499152500E2D80B /* PreferencesManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManagerProtocol.swift; sourceTree = "<group>"; };
 		EBB7EF772499155200E2D80B /* PreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesService.swift; sourceTree = "<group>"; };
 		EBB7EF792499159300E2D80B /* UserDefaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extensions.swift"; sourceTree = "<group>"; };
+		EBB7EF7B2499169500E2D80B /* PreferencesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPresenterTests.swift; sourceTree = "<group>"; };
+		EBB7EF7D249919B900E2D80B /* PreferencesViewSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewSpy.swift; sourceTree = "<group>"; };
+		EBB7EF7F249919DB00E2D80B /* PreferencesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPresenter.swift; sourceTree = "<group>"; };
+		EBB7EF8124991A0900E2D80B /* PreferencesViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewProtocol.swift; sourceTree = "<group>"; };
+		EBB7EF8324991A2C00E2D80B /* PreferencesServiceDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesServiceDummy.swift; sourceTree = "<group>"; };
+		EBB7EF8524991A5100E2D80B /* PreferencesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPresenterProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +209,7 @@
 				49A5D32D24616CAE004D4DBB /* APIClientTests.swift */,
 				49C18CF82473D36600E7AB46 /* LocationServiceTests.swift */,
 				EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */,
+				EBB7EF7B2499169500E2D80B /* PreferencesPresenterTests.swift */,
 				49B0D110247717EF005A0CD3 /* URLBuilderTests.swift */,
 				4942F48E24571F9B007CF0C2 /* WeatherPresenterTests.swift */,
 				49C24FEA2464612B00233528 /* WeatherViewControllerTests.swift */,
@@ -224,6 +237,8 @@
 				4925939124767CBE003816F2 /* LocationProtocol.swift */,
 				4925938924767656003816F2 /* LocationServiceProtocol.swift */,
 				EBB7EF752499152500E2D80B /* PreferencesManagerProtocol.swift */,
+				EBB7EF8524991A5100E2D80B /* PreferencesPresenterProtocol.swift */,
+				EBB7EF8124991A0900E2D80B /* PreferencesViewProtocol.swift */,
 				49B0D10E24771380005A0CD3 /* URLBuilderProtocol.swift */,
 				49A5D33D24618935004D4DBB /* URLSessionProtocol.swift */,
 				49A5D31E246060E6004D4DBB /* WeatherPresenterProtocol.swift */,
@@ -256,6 +271,7 @@
 		49A5D31B24606083004D4DBB /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				EBB7EF7F249919DB00E2D80B /* PreferencesPresenter.swift */,
 				49A5D32424606468004D4DBB /* WeatherPresenter.swift */,
 			);
 			path = Presenters;
@@ -270,6 +286,8 @@
 				49C18CFA2473D81C00E7AB46 /* LocationManagerMock.swift */,
 				4925938F24767C4E003816F2 /* LocationServiceDummy.swift */,
 				4925938B24767AFF003816F2 /* LocationServiceSpy.swift */,
+				EBB7EF8324991A2C00E2D80B /* PreferencesServiceDummy.swift */,
+				EBB7EF7D249919B900E2D80B /* PreferencesViewSpy.swift */,
 				49A5D33F24618C8F004D4DBB /* URLSessionDataTaskMock.swift */,
 				49A5D34124618CDA004D4DBB /* URLSessionMock.swift */,
 				49C24FEC246461CA00233528 /* WeatherPresenterStub.swift */,
@@ -428,6 +446,7 @@
 				49BF03B12466B812005D5A53 /* DispatchQueue+Extension.swift in Sources */,
 				4925939224767CBE003816F2 /* LocationProtocol.swift in Sources */,
 				49BF03AE2466B73E005D5A53 /* DispatchQueueProtocol.swift in Sources */,
+				EBB7EF8624991A5100E2D80B /* PreferencesPresenterProtocol.swift in Sources */,
 				493F9DE02477F3C500E066C1 /* Date+Extension.swift in Sources */,
 				4925939424768331003816F2 /* LocationCoordinate2D.swift in Sources */,
 				4965AF7C247A9C6800DD620A /* String+Extension.swift in Sources */,
@@ -453,6 +472,8 @@
 				49B0D114247719A2005A0CD3 /* URLBuilder.swift in Sources */,
 				49D194512464213900104508 /* Weather.swift in Sources */,
 				49A5D323246061CD004D4DBB /* APIClient.swift in Sources */,
+				EBB7EF80249919DB00E2D80B /* PreferencesPresenter.swift in Sources */,
+				EBB7EF8224991A0900E2D80B /* PreferencesViewProtocol.swift in Sources */,
 				49A5D321246060FF004D4DBB /* WeatherViewProtocol.swift in Sources */,
 				4942F47524571F9A007CF0C2 /* AppDelegate.swift in Sources */,
 				4942F47724571F9A007CF0C2 /* SceneDelegate.swift in Sources */,
@@ -468,8 +489,10 @@
 				4925938C24767AFF003816F2 /* LocationServiceSpy.swift in Sources */,
 				49A5D32C24616B9C004D4DBB /* WeatherViewControllerSpy.swift in Sources */,
 				49C18CF92473D36600E7AB46 /* LocationServiceTests.swift in Sources */,
+				EBB7EF7E249919B900E2D80B /* PreferencesViewSpy.swift in Sources */,
 				4942F48F24571F9B007CF0C2 /* WeatherPresenterTests.swift in Sources */,
 				49BF03B32466ED33005D5A53 /* DispatchQueueMock.swift in Sources */,
+				EBB7EF8424991A2C00E2D80B /* PreferencesServiceDummy.swift in Sources */,
 				49C24FED246461CA00233528 /* WeatherPresenterStub.swift in Sources */,
 				49C24FEB2464612B00233528 /* WeatherViewControllerTests.swift in Sources */,
 				49A5D32A24616B62004D4DBB /* APIClientStub.swift in Sources */,
@@ -480,6 +503,7 @@
 				4925939024767C4E003816F2 /* LocationServiceDummy.swift in Sources */,
 				EBB7EF7424990E4D00E2D80B /* PreferencesManagerTests.swift in Sources */,
 				49B0D111247717EF005A0CD3 /* URLBuilderTests.swift in Sources */,
+				EBB7EF7C2499169500E2D80B /* PreferencesPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
