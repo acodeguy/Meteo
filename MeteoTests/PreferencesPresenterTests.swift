@@ -2,12 +2,12 @@ import XCTest
 @testable import Meteo
 
 class PreferencesPresenterTests: XCTestCase {
-    func testCallsDisplayPreferencesOnItsView() {
+    func testCallsSetDisplayOnItsView() {
         let view = PreferencesViewSpy()
         let preferencesService = PreferencesServiceDummy()
         let sut = PreferencesPresenter(view: view, preferencesService: preferencesService)
         
-        sut.displayPreferences()
+        sut.setDisplay()
         
         XCTAssertEqual(view.numberOfTimesDisplayPreferencesCalled, 1)
     }

@@ -1,9 +1,9 @@
 @testable import Meteo
 
 class PreferencesServiceDummy: PreferencesServiceProtocol {
-    func set(_ value: Any?, forKey key: String) {}
+    func set(_ value: Int, forKey defaultName: String) {}
     
-    func string(forKey key: String) -> String? {
-        return nil
+    func integer(forKey key: String) -> Int {
+        return 0
     }
 }

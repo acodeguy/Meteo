@@ -6,8 +6,13 @@ class PreferencesPresenter: PreferencesPresenterProtocol {
         self.view = view
         self.preferencesService = preferencesService
     }
+        
+    func setDisplay() {
+        let temperatureUnitPreference = preferencesService.integer(forKey: Constants.PreferencesKeys.temperatureUnit)
+        view.setDisplay(temperateUnit: TemperatureUnit(rawValue: temperatureUnitPreference)!)
+    }
     
-    func displayPreferences() {
-        view.displayPreferences()
+    func savePreference(value: Int, forKey key: String) {
+        preferencesService.set(value, forKey: key)
     }
 }

@@ -66,6 +66,7 @@
 		EBB7EF8224991A0900E2D80B /* PreferencesViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF8124991A0900E2D80B /* PreferencesViewProtocol.swift */; };
 		EBB7EF8424991A2C00E2D80B /* PreferencesServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF8324991A2C00E2D80B /* PreferencesServiceDummy.swift */; };
 		EBB7EF8624991A5100E2D80B /* PreferencesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF8524991A5100E2D80B /* PreferencesPresenterProtocol.swift */; };
+		EBCBE862249A60FE003F535D /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCBE861249A60FE003F535D /* PreferencesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		EBB7EF8124991A0900E2D80B /* PreferencesViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewProtocol.swift; sourceTree = "<group>"; };
 		EBB7EF8324991A2C00E2D80B /* PreferencesServiceDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesServiceDummy.swift; sourceTree = "<group>"; };
 		EBB7EF8524991A5100E2D80B /* PreferencesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPresenterProtocol.swift; sourceTree = "<group>"; };
+		EBCBE861249A60FE003F535D /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 		49A5D31524605DCB004D4DBB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EBCBE861249A60FE003F535D /* PreferencesViewController.swift */,
 				49A5D31324605DC6004D4DBB /* WeatherViewController.swift */,
 			);
 			path = Views;
@@ -472,6 +475,7 @@
 				49B0D114247719A2005A0CD3 /* URLBuilder.swift in Sources */,
 				49D194512464213900104508 /* Weather.swift in Sources */,
 				49A5D323246061CD004D4DBB /* APIClient.swift in Sources */,
+				EBCBE862249A60FE003F535D /* PreferencesViewController.swift in Sources */,
 				EBB7EF80249919DB00E2D80B /* PreferencesPresenter.swift in Sources */,
 				EBB7EF8224991A0900E2D80B /* PreferencesViewProtocol.swift in Sources */,
 				49A5D321246060FF004D4DBB /* WeatherViewProtocol.swift in Sources */,

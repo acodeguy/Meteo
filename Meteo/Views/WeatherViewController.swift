@@ -22,7 +22,10 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         title = "Meteo"
         view.backgroundColor = .systemBackground
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshWeather))
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(preferencesTapped)),
+            UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshWeather))
+            ]
         
         view.addSubview(weatherIconImageView)
         weatherIconImageView.contentMode = .scaleAspectFit
@@ -86,5 +89,13 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
     
     @objc private func refreshWeather() {
         presenter?.updateCurrentLocation()
+    }
+    
+    @objc private func preferencesTapped() {
+        let view = PreferencesViewController()
+        let presenter = PreferencesPresenter(view: view, preferencesService: UserDefaults.standard)
+        view.presenter = presenter
+        
+        navigationController?.pushViewController(view, animated: true)
     }
 }
