@@ -1,3 +1,4 @@
+// swiftlint:disable line_length
 import XCTest
 @testable import Meteo
 
@@ -11,7 +12,7 @@ class WeatherViewControllerTests: XCTestCase {
         sut = WeatherViewController()
         sut.dispatchQueue = DispatchQueueMock()
         let locationServiceDummy = LocationServiceDummy(manager: LocationManagerDummy())
-        presenter = WeatherPresenterStub(view: sut, service: service, locationService: locationServiceDummy)
+        presenter = WeatherPresenterStub(view: sut, service: service, locationService: locationServiceDummy, preferencesService: PreferencesServiceDummy())
         sut.presenter = presenter
         presenter.showWeather(for: 0)
     }

@@ -3,7 +3,9 @@ import UIKit
 protocol WeatherViewProtocol {
     var presenter: WeatherPresenterProtocol? { get set }
     var weatherIconImageView: UIImageView { get set }
-    func setWeather(weatherResponse: WeatherResponse)
+    var titleLabel: UILabel { get set }
+    var temperatureLabel: UILabel { get set }
+    var informationPanel: UILabel { get set }
     func setInformationPanel(_ text: String)
     func setWeatherImage(with image: UIImage)
 }

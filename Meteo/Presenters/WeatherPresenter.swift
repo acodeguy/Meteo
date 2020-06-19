@@ -1,15 +1,18 @@
+// swiftlint:disable line_length
 import UIKit
 
-class WeatherPresenter: WeatherPresenterProtocol {
+class WeatherPresenter: WeatherPresenterProtocol {   
     var view: WeatherViewProtocol
     var service: APIClientProtocol
     var locationService: LocationServiceProtocol
+    var preferencesService: PreferencesServiceProtocol
     var urlBuilder: URLBuilderProtocol?
     
-    required init(view: WeatherViewProtocol, service: APIClientProtocol, locationService: LocationServiceProtocol) {
+    required init(view: WeatherViewProtocol, service: APIClientProtocol, locationService: LocationServiceProtocol, preferencesService: PreferencesServiceProtocol) {
         self.view = view
         self.service = service
         self.locationService = locationService
+        self.preferencesService = preferencesService
     }
     
     func updateCurrentLocation() {
@@ -44,9 +47,24 @@ class WeatherPresenter: WeatherPresenterProtocol {
         service.fetch(dataType: WeatherResponse.self, from: url) { result in
             switch result {
             case .success(let response):
-                self.view.setWeather(weatherResponse: response)
-                
                 guard let weather = response.weather.first else { return }
+                
+                var temperatureString = ""
+                let temperature = weather.temperature
+                
+                switch self.preferencesService.integer(forKey: Constants.PreferencesKeys.temperatureUnit) {
+                case TemperatureUnit.celsius.rawValue:
+                    temperatureString = "\(round(weather.temperature)) ℃"
+                case TemperatureUnit.fahrenheit.rawValue:
+                    temperatureString = "\(round(temperature.toFahrenheit())) ℉"
+                default:
+                    break
+                }
+                
+                DispatchQueue.main.async {
+                    self.view.titleLabel.attributedText = "\(response.title), \(response.locationInfo.countryName)".center()
+                    self.view.temperatureLabel.attributedText = temperatureString.center()
+                }
                 
                 self.fetchWeatherIcon(for: weather.stateAbbreviation)
             case .failure(let error):

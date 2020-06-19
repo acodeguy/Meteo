@@ -29,7 +29,7 @@ class WeatherPresenterTests: XCTestCase {
     }
     
     func testShouldCallGetCurrentLocationOnItsLocationService() {
-        let sut = WeatherPresenter(view: weatherViewControllerSpy, service: clientStub, locationService: locationServiceSpy)
+        let sut = WeatherPresenter(view: weatherViewControllerSpy, service: clientStub, locationService: locationServiceSpy, preferencesService: PreferencesServiceDummy())
         weatherViewControllerSpy.presenter = sut
         
         sut.updateCurrentLocation()
@@ -37,18 +37,8 @@ class WeatherPresenterTests: XCTestCase {
         XCTAssertEqual(locationServiceSpy.numberOfTimesGetCurrentLocationWasCalled, 1, "getCurrentLocation was not called the expected number of times")
     }
     
-    func testShouldCallSetWeatherOnItsView() {
-        let sut = WeatherPresenter(view: weatherViewControllerSpy, service: clientStub, locationService: locationServiceSpy)
-        sut.urlBuilder = URLBuilder(baseURL: "dummy")
-        weatherViewControllerSpy.presenter = sut
-        
-        sut.showWeather(for: 123456)
-        
-        XCTAssertEqual(weatherViewControllerSpy.numberOfTimesSetWeatherWasCalled, 1, "setWeather was not called the required number of times")
-    }
-    
     func testShouldCallSetWetherImage() {
-        let sut = WeatherPresenter(view: weatherViewControllerSpy, service: clientStub, locationService: locationServiceDummy)
+        let sut = WeatherPresenter(view: weatherViewControllerSpy, service: clientStub, locationService: locationServiceDummy, preferencesService: PreferencesServiceDummy())
         sut.urlBuilder = URLBuilder(baseURL: "dummy")
         weatherViewControllerSpy.presenter = sut
         

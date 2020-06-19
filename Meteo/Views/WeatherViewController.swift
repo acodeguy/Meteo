@@ -3,9 +3,9 @@ import UIKit
 class WeatherViewController: UIViewController, WeatherViewProtocol {
     var presenter: WeatherPresenterProtocol?
     var dispatchQueue: DispatchQueueProtocol = DispatchQueue.main
-    let titleLabel = UILabel()
-    let temperatureLabel = UILabel()
-    let informationPanel = UILabel()
+    var titleLabel = UILabel()
+    var temperatureLabel = UILabel()
+    var informationPanel = UILabel()
     var weatherIconImageView: UIImageView = UIImageView()
     
     override func viewDidLoad() {
@@ -16,6 +16,10 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         if let presenter = presenter {
             presenter.updateCurrentLocation()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupUI()
     }
     
     private func setupUI() {
@@ -62,19 +66,6 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
             informationPanel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             informationPanel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         ])
-    }
-    
-    func setWeather(weatherResponse: WeatherResponse) {
-        dispatchQueue.async {
-            self.titleLabel.attributedText = "\(weatherResponse.title), \(weatherResponse.locationInfo.countryName)".center()
-            
-            guard let weather = weatherResponse.weather.first else { return }
-            
-            let temperature = round(weather.temperature)
-            self.temperatureLabel.attributedText = "\(temperature) ℃".center()
-            
-            self.setInformationPanel("Weather updated at \(Date().toShortTime())")
-        }
     }
     
     func setWeatherImage(with image: UIImage) {
