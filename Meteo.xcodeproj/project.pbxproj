@@ -68,6 +68,7 @@
 		EBB7EF8624991A5100E2D80B /* PreferencesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF8524991A5100E2D80B /* PreferencesPresenterProtocol.swift */; };
 		EBCBE862249A60FE003F535D /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCBE861249A60FE003F535D /* PreferencesViewController.swift */; };
 		EBCBE866249D5113003F535D /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCBE865249D5113003F535D /* Double+Extensions.swift */; };
+		EBCBE868249D5C02003F535D /* Date+Extensions+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCBE867249D5C02003F535D /* Date+Extensions+Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		EBB7EF8524991A5100E2D80B /* PreferencesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPresenterProtocol.swift; sourceTree = "<group>"; };
 		EBCBE861249A60FE003F535D /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		EBCBE865249D5113003F535D /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		EBCBE867249D5C02003F535D /* Date+Extensions+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions+Tests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 			children = (
 				49A5D32824616B4D004D4DBB /* Doubles */,
 				49A5D32D24616CAE004D4DBB /* APIClientTests.swift */,
+				EBCBE867249D5C02003F535D /* Date+Extensions+Tests.swift */,
 				49C18CF82473D36600E7AB46 /* LocationServiceTests.swift */,
 				EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */,
 				EBB7EF7B2499169500E2D80B /* PreferencesPresenterTests.swift */,
@@ -510,6 +513,7 @@
 				49A5D34024618C8F004D4DBB /* URLSessionDataTaskMock.swift in Sources */,
 				4925939024767C4E003816F2 /* LocationServiceDummy.swift in Sources */,
 				EBB7EF7424990E4D00E2D80B /* PreferencesManagerTests.swift in Sources */,
+				EBCBE868249D5C02003F535D /* Date+Extensions+Tests.swift in Sources */,
 				49B0D111247717EF005A0CD3 /* URLBuilderTests.swift in Sources */,
 				EBB7EF7C2499169500E2D80B /* PreferencesPresenterTests.swift in Sources */,
 			);
