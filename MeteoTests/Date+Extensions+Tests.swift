@@ -11,6 +11,7 @@ class DateExtensionsTests: XCTestCase {
         
         let timeString = date.toShortTime()
         
-        XCTAssertEqual(timeString, "\(hour):\(minute):\(second)")
+        let expectedTimeString = String(format: "%02d:%02d:%02d", hour, minute, second)
+        XCTAssertEqual(timeString, expectedTimeString)
     }
 }
