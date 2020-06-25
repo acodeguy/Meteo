@@ -1,14 +1,15 @@
-// swiftlint:disable line_length
 import XCTest
 @testable import Meteo
 
 class WeatherViewControllerTests: XCTestCase {
+    private var jsonParser: JSONParserProtocol!
     private var service: APIClientStub!
     private var sut: WeatherViewController!
     private var presenter: WeatherPresenterStub!
     
     override func setUp() {
-        service = APIClientStub(session: URLSessionMock())
+        jsonParser = JSONParserDummy(decoder: JSONDecoderDummy())
+        service = APIClientStub(session: URLSessionMock(), jsonParser: jsonParser)
         sut = WeatherViewController()
         sut.dispatchQueue = DispatchQueueMock()
         let locationServiceDummy = LocationServiceDummy(manager: LocationManagerDummy())
@@ -18,6 +19,7 @@ class WeatherViewControllerTests: XCTestCase {
     }
     
     override func tearDown() {
+        jsonParser = nil
         service = nil
         sut = nil
         presenter = nil

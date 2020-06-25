@@ -1,6 +1,4 @@
-// swiftlint:disable line_length
 import XCTest
-import CoreLocation
 @testable import Meteo
 
 class WeatherPresenterTests: XCTestCase {
@@ -10,10 +8,12 @@ class WeatherPresenterTests: XCTestCase {
     private var locationManagerDummy: LocationManagerDummy!
     private var locationServiceDummy: LocationServiceDummy!
     private var locationServiceSpy: LocationServiceSpy!
+    private var jsonParserDummy: JSONParserDummy!
     
     override func setUp() {
         urlSessionMock = URLSessionMock()
-        clientStub = APIClientStub(session: urlSessionMock)
+        jsonParserDummy = JSONParserDummy(decoder: JSONDecoderDummy())
+        clientStub = APIClientStub(session: urlSessionMock, jsonParser: jsonParserDummy)
         weatherViewControllerSpy = WeatherViewControllerSpy()
         locationManagerDummy = LocationManagerDummy()
         locationServiceSpy = LocationServiceSpy(manager: locationManagerDummy)

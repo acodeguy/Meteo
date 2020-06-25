@@ -4,9 +4,11 @@ import UIKit
 class APIClientStub: APIClientProtocol {
     typealias APIClientResult<T> = (Result<T, Error>) -> Void
     var session: URLSessionProtocol
+    var jsonParser: JSONParserProtocol
     
-    required init(session: URLSessionProtocol) {
+    required init(session: URLSessionProtocol, jsonParser: JSONParserProtocol) {
         self.session = session
+        self.jsonParser = jsonParser
     }
     
     func fetch<T: Decodable>(dataType: T.Type, from url: URL, completionHandler: @escaping APIClientResult<T>) {

@@ -4,10 +4,12 @@ import XCTest
 class APIClientTests: XCTestCase {
     private var urlSession: URLSessionMock!
     private var apiClientService: APIClient!
+    private var jsonParser: JSONParser!
     
     override func setUp() {
         urlSession = URLSessionMock()
-        apiClientService = APIClient(session: urlSession)
+        jsonParser = JSONParser(decoder: JSONDecoder())
+        apiClientService = APIClient(session: urlSession, jsonParser: jsonParser)
     }
     
     override func tearDown() {

@@ -6,7 +6,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let apiService = APIClient(session: URLSession.shared)
+        let jsonParser = JSONParser(decoder: JSONDecoder())
+        let apiService = APIClient(session: URLSession.shared, jsonParser: jsonParser)
         let view = WeatherViewController()
         let presenter = WeatherPresenter(view: view, service: apiService, locationService: LocationService(), preferencesService: UserDefaults.standard)
         presenter.urlBuilder = URLBuilder(baseURL: Constants.API.baseURL)
