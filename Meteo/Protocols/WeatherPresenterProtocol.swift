@@ -1,4 +1,3 @@
-// swiftlint:disable line_length
 import Foundation
 
 protocol WeatherPresenterProtocol {
