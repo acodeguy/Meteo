@@ -55,7 +55,7 @@ class WeatherPresenter: WeatherPresenterProtocol {
                 case TemperatureUnit.celsius.rawValue:
                     temperatureString = "\(round(weather.temperature)) ℃"
                 case TemperatureUnit.fahrenheit.rawValue:
-                    temperatureString = "\(round(temperature.toFahrenheit())) ℉"
+                    temperatureString = "\(temperature.toFahrenheit()) ℉"
                 default:
                     break
                 }
