@@ -61,6 +61,7 @@
 		EB358DC124A4AAE500E91DBD /* JSONParserProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB358DC024A4AAE500E91DBD /* JSONParserProtocol.swift */; };
 		EB358DC324A4AB0400E91DBD /* JSONDecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB358DC224A4AB0400E91DBD /* JSONDecoderProtocol.swift */; };
 		EB358DC524A4AB2400E91DBD /* JSONDecoder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB358DC424A4AB2400E91DBD /* JSONDecoder+Extensions.swift */; };
+		EB358DC724A4AD9F00E91DBD /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB358DC624A4AD9F00E91DBD /* JSONParserTests.swift */; };
 		EBB7EF7424990E4D00E2D80B /* PreferencesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */; };
 		EBB7EF762499152500E2D80B /* PreferencesManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF752499152500E2D80B /* PreferencesManagerProtocol.swift */; };
 		EBB7EF782499155200E2D80B /* PreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF772499155200E2D80B /* PreferencesService.swift */; };
@@ -146,6 +147,7 @@
 		EB358DC024A4AAE500E91DBD /* JSONParserProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserProtocol.swift; sourceTree = "<group>"; };
 		EB358DC224A4AB0400E91DBD /* JSONDecoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderProtocol.swift; sourceTree = "<group>"; };
 		EB358DC424A4AB2400E91DBD /* JSONDecoder+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extensions.swift"; sourceTree = "<group>"; };
+		EB358DC624A4AD9F00E91DBD /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
 		EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManagerTests.swift; sourceTree = "<group>"; };
 		EBB7EF752499152500E2D80B /* PreferencesManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManagerProtocol.swift; sourceTree = "<group>"; };
 		EBB7EF772499155200E2D80B /* PreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesService.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				4942F48E24571F9B007CF0C2 /* WeatherPresenterTests.swift */,
 				49C24FEA2464612B00233528 /* WeatherViewControllerTests.swift */,
 				4942F49024571F9B007CF0C2 /* Info.plist */,
+				EB358DC624A4AD9F00E91DBD /* JSONParserTests.swift */,
 			);
 			path = MeteoTests;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				4925938C24767AFF003816F2 /* LocationServiceSpy.swift in Sources */,
 				49A5D32C24616B9C004D4DBB /* WeatherViewControllerSpy.swift in Sources */,
 				49C18CF92473D36600E7AB46 /* LocationServiceTests.swift in Sources */,
+				EB358DC724A4AD9F00E91DBD /* JSONParserTests.swift in Sources */,
 				EB358DBD24A4A9E700E91DBD /* JSONDecoderDummy.swift in Sources */,
 				EBB7EF7E249919B900E2D80B /* PreferencesViewSpy.swift in Sources */,
 				4942F48F24571F9B007CF0C2 /* WeatherPresenterTests.swift in Sources */,
