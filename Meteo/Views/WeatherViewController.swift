@@ -68,8 +68,8 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         ])
     }
     
-    func setWeatherImage(with image: UIImage) {
-        DispatchQueue.main.async {
+    func setWeatherImage(with image: UIImage, using queue: DispatchQueueProtocol) {
+        queue.async {
             self.weatherIconImageView.image = image
         }
     }

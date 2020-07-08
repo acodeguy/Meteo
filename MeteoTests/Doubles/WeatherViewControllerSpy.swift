@@ -2,7 +2,7 @@
 import UIKit
 @testable import Meteo
 
-class WeatherViewControllerSpy: WeatherViewProtocol {
+class WeatherViewControllerSpy: WeatherViewProtocol {   
     var titleLabel = UILabel()
     var temperatureLabel = UILabel()
     var informationPanel = UILabel()
@@ -16,7 +16,7 @@ class WeatherViewControllerSpy: WeatherViewProtocol {
         numberOfTimesSetInformationPanelWasCalled += 1
     }
     
-    func setWeatherImage(with image: UIImage) {
+    func setWeatherImage(with image: UIImage, using queue: DispatchQueueProtocol) {
         numberOfTimesSetWeatherImageWasCalled += 1
     }
 }

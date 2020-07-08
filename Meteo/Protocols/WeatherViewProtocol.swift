@@ -7,5 +7,5 @@ protocol WeatherViewProtocol {
     var temperatureLabel: UILabel { get set }
     var informationPanel: UILabel { get set }
     func setInformationPanel(_ text: String)
-    func setWeatherImage(with image: UIImage)
+    func setWeatherImage(with image: UIImage, using queue: DispatchQueueProtocol)
 }

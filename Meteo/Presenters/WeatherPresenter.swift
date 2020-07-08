@@ -79,7 +79,7 @@ class WeatherPresenter: WeatherPresenterProtocol {
             switch result {
             case .success(let data):
                 if let image = UIImage(data: data) {
-                    self.view.setWeatherImage(with: image)
+                    self.view.setWeatherImage(with: image, using: DispatchQueue.main)
                 }
             case .failure(let error):
                 print(error.localizedDescription)

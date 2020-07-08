@@ -32,4 +32,12 @@ class WeatherViewControllerTests: XCTestCase {
     func testSetsTheCurrentTemperature() {
         XCTAssertEqual(sut.temperatureLabel.text, "27.0 ℃")
     }
+    
+    func testSetsTheWeatherImage() {
+        let image = UIImage(systemName: "person")
+
+        sut.setWeatherImage(with: image!, using: DispatchQueueMock())
+
+        XCTAssertEqual(sut.weatherIconImageView.image, image)
+    }
 }
