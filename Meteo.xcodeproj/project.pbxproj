@@ -64,6 +64,8 @@
 		EB358DC724A4AD9F00E91DBD /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB358DC624A4AD9F00E91DBD /* JSONParserTests.swift */; };
 		EB358DC924A4B59700E91DBD /* DoubleExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB358DC824A4B59700E91DBD /* DoubleExtensionTests.swift */; };
 		EB39B31224B5E25600940657 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB39B31124B5E25600940657 /* LocationTests.swift */; };
+		EB39B31824B62B1200940657 /* PreferencesServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB39B31724B62B1200940657 /* PreferencesServiceSpy.swift */; };
+		EB39B31A24B62B4700940657 /* PreferencesViewDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB39B31924B62B4700940657 /* PreferencesViewDummy.swift */; };
 		EBB7EF7424990E4D00E2D80B /* PreferencesManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */; };
 		EBB7EF762499152500E2D80B /* PreferencesManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF752499152500E2D80B /* PreferencesManagerProtocol.swift */; };
 		EBB7EF782499155200E2D80B /* PreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7EF772499155200E2D80B /* PreferencesService.swift */; };
@@ -152,6 +154,8 @@
 		EB358DC624A4AD9F00E91DBD /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
 		EB358DC824A4B59700E91DBD /* DoubleExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensionTests.swift; sourceTree = "<group>"; };
 		EB39B31124B5E25600940657 /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
+		EB39B31724B62B1200940657 /* PreferencesServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesServiceSpy.swift; sourceTree = "<group>"; };
+		EB39B31924B62B4700940657 /* PreferencesViewDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewDummy.swift; sourceTree = "<group>"; };
 		EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManagerTests.swift; sourceTree = "<group>"; };
 		EBB7EF752499152500E2D80B /* PreferencesManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManagerProtocol.swift; sourceTree = "<group>"; };
 		EBB7EF772499155200E2D80B /* PreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesService.swift; sourceTree = "<group>"; };
@@ -229,19 +233,12 @@
 		4942F48D24571F9B007CF0C2 /* MeteoTests */ = {
 			isa = PBXGroup;
 			children = (
+				EB39B31624B62AB900940657 /* Extensions */,
+				EB39B31524B62A7000940657 /* Services */,
+				EB39B31424B62A5400940657 /* Views */,
+				EB39B31324B62A3900940657 /* Presenters */,
 				49A5D32824616B4D004D4DBB /* Doubles */,
-				49A5D32D24616CAE004D4DBB /* APIClientTests.swift */,
-				EBCBE867249D5C02003F535D /* Date+Extensions+Tests.swift */,
-				49C18CF82473D36600E7AB46 /* LocationServiceTests.swift */,
-				EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */,
-				EBB7EF7B2499169500E2D80B /* PreferencesPresenterTests.swift */,
-				49B0D110247717EF005A0CD3 /* URLBuilderTests.swift */,
-				4942F48E24571F9B007CF0C2 /* WeatherPresenterTests.swift */,
-				49C24FEA2464612B00233528 /* WeatherViewControllerTests.swift */,
 				4942F49024571F9B007CF0C2 /* Info.plist */,
-				EB358DC624A4AD9F00E91DBD /* JSONParserTests.swift */,
-				EB358DC824A4B59700E91DBD /* DoubleExtensionTests.swift */,
-				EB39B31124B5E25600940657 /* LocationTests.swift */,
 			);
 			path = MeteoTests;
 			sourceTree = "<group>";
@@ -321,6 +318,8 @@
 				4925938F24767C4E003816F2 /* LocationServiceDummy.swift */,
 				4925938B24767AFF003816F2 /* LocationServiceSpy.swift */,
 				EBB7EF8324991A2C00E2D80B /* PreferencesServiceDummy.swift */,
+				EB39B31724B62B1200940657 /* PreferencesServiceSpy.swift */,
+				EB39B31924B62B4700940657 /* PreferencesViewDummy.swift */,
 				EBB7EF7D249919B900E2D80B /* PreferencesViewSpy.swift */,
 				49A5D33F24618C8F004D4DBB /* URLSessionDataTaskMock.swift */,
 				49A5D34124618CDA004D4DBB /* URLSessionMock.swift */,
@@ -351,6 +350,45 @@
 				4965AF7B247A9C6800DD620A /* String+Extension.swift */,
 				4925939924768645003816F2 /* URLSession+Extension.swift */,
 				EBB7EF792499159300E2D80B /* UserDefaults+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EB39B31324B62A3900940657 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				EBB7EF7B2499169500E2D80B /* PreferencesPresenterTests.swift */,
+				4942F48E24571F9B007CF0C2 /* WeatherPresenterTests.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		EB39B31424B62A5400940657 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				49C24FEA2464612B00233528 /* WeatherViewControllerTests.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EB39B31524B62A7000940657 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				49A5D32D24616CAE004D4DBB /* APIClientTests.swift */,
+				EB358DC624A4AD9F00E91DBD /* JSONParserTests.swift */,
+				EB39B31124B5E25600940657 /* LocationTests.swift */,
+				49C18CF82473D36600E7AB46 /* LocationServiceTests.swift */,
+				EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */,
+				49B0D110247717EF005A0CD3 /* URLBuilderTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		EB39B31624B62AB900940657 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EBCBE867249D5C02003F535D /* Date+Extensions+Tests.swift */,
+				EB358DC824A4B59700E91DBD /* DoubleExtensionTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -546,6 +584,8 @@
 				4925938E24767BAD003816F2 /* LocationManagerDummy.swift in Sources */,
 				EB358DBF24A4AA1300E91DBD /* JSONParserDummy.swift in Sources */,
 				49A5D34024618C8F004D4DBB /* URLSessionDataTaskMock.swift in Sources */,
+				EB39B31A24B62B4700940657 /* PreferencesViewDummy.swift in Sources */,
+				EB39B31824B62B1200940657 /* PreferencesServiceSpy.swift in Sources */,
 				4925939024767C4E003816F2 /* LocationServiceDummy.swift in Sources */,
 				EB39B31224B5E25600940657 /* LocationTests.swift in Sources */,
 				EBB7EF7424990E4D00E2D80B /* PreferencesManagerTests.swift in Sources */,
