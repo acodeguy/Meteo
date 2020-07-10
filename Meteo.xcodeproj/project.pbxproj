@@ -378,11 +378,11 @@
 			children = (
 				49A5D32D24616CAE004D4DBB /* APIClientTests.swift */,
 				EB358DC624A4AD9F00E91DBD /* JSONParserTests.swift */,
-				EB39B31124B5E25600940657 /* LocationTests.swift */,
 				49C18CF82473D36600E7AB46 /* LocationServiceTests.swift */,
+				EB39B31124B5E25600940657 /* LocationTests.swift */,
 				EBB7EF7324990E4D00E2D80B /* PreferencesManagerTests.swift */,
-				49B0D110247717EF005A0CD3 /* URLBuilderTests.swift */,
 				EB39B31B24B62C0300940657 /* PreferencesServiceTests.swift */,
+				49B0D110247717EF005A0CD3 /* URLBuilderTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";

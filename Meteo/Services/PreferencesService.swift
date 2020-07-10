@@ -10,8 +10,8 @@ class PreferencesService: PreferencesServiceProtocol {
     func integer(forKey key: String) -> Int {
         if let value = preferences[key] as? Int {
             return value
+        } else {
+            return 0
         }
-        
-        return 0
     }
 }
