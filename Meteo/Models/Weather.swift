@@ -1,5 +1,8 @@
 import Foundation
 
+// MARK: - Weather
+
+/// A Weather object decoded from JSON
 struct Weather: Decodable {   
     let temperature: Double
     let state: String
