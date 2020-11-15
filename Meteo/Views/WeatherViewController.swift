@@ -15,12 +15,47 @@ protocol WeatherViewProtocol {
 // MARK: - WeatherViewController
 
 class WeatherViewController: UIViewController, WeatherViewProtocol {
+    
+    // MARK: Variables
+    
     var presenter: WeatherPresenterProtocol?
     var dispatchQueue: DispatchQueueProtocol = DispatchQueue.main
-    var titleLabel = UILabel()
-    var temperatureLabel = UILabel()
-    var informationPanel = UILabel()
-    var weatherIconImageView: UIImageView = UIImageView()
+    
+    // MARK: Variables - UI
+    
+    internal lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.adjustsFontSizeToFitWidth = true
+        label.font = UIFont(name: "Avenir", size: 50)
+        
+        return label
+    }()
+    
+    internal lazy var temperatureLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Avenir", size: 50)
+        
+        return label
+    }()
+    
+    internal lazy var informationPanel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
+    internal lazy var weatherIconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    
+    // MARK: Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +71,20 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         setupUI()
     }
     
+    // MARK: Instance methods
+    
+    func setWeatherImage(with image: UIImage, using queue: DispatchQueueProtocol) {
+        queue.async {
+            self.weatherIconImageView.image = image
+        }
+    }
+    
+    func setInformationPanel(_ text: String) {
+        self.informationPanel.text = text
+    }
+    
+    // MARK: Private methods
+    
     private func setupUI() {
         title = "Meteo"
         view.backgroundColor = .systemBackground
@@ -46,20 +95,9 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
             ]
         
         view.addSubview(weatherIconImageView)
-        weatherIconImageView.contentMode = .scaleAspectFit
-        weatherIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.adjustsFontSizeToFitWidth = true
-        titleLabel.font = UIFont(name: "Avenir", size: 50)
-        
         view.addSubview(temperatureLabel)
-        temperatureLabel.translatesAutoresizingMaskIntoConstraints = false
-        temperatureLabel.font = UIFont(name: "Avenir", size: 50)
-        
         view.addSubview(informationPanel)
-        informationPanel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             weatherIconImageView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 50),
@@ -80,16 +118,6 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
             informationPanel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             informationPanel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         ])
-    }
-    
-    func setWeatherImage(with image: UIImage, using queue: DispatchQueueProtocol) {
-        queue.async {
-            self.weatherIconImageView.image = image
-        }
-    }
-    
-    func setInformationPanel(_ text: String) {
-        self.informationPanel.text = text
     }
     
     @objc private func refreshWeather() {
