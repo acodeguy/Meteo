@@ -1,22 +1,22 @@
+// swiftlint:disable identifier_name
 import UIKit
 @testable import Meteo
 
-class WeatherViewControllerSpy: WeatherViewProtocol {
+class WeatherViewControllerSpy: WeatherViewProtocol {   
+    var titleLabel = UILabel()
+    var temperatureLabel = UILabel()
+    var informationPanel = UILabel()
     var weatherIconImageView: UIImageView = UIImageView()
     var presenter: WeatherPresenterProtocol?
     var numberOfTimesSetWeatherWasCalled = 0
     var numberOfTimesSetInformationPanelWasCalled = 0
     var numberOfTimesSetWeatherImageWasCalled = 0
-        
-    func setWeather(weatherResponse: WeatherResponse) {
-        numberOfTimesSetWeatherWasCalled += 1
-    }
     
     func setInformationPanel(_ text: String) {
-        numberOfTimesSetWeatherWasCalled += 1
+        numberOfTimesSetInformationPanelWasCalled += 1
     }
     
-    func setWeatherImage(with image: UIImage) {
+    func setWeatherImage(with image: UIImage, using queue: DispatchQueueProtocol) {
         numberOfTimesSetWeatherImageWasCalled += 1
     }
 }

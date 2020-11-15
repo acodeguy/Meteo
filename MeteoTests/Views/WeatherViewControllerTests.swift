@@ -2,21 +2,24 @@ import XCTest
 @testable import Meteo
 
 class WeatherViewControllerTests: XCTestCase {
+    private var jsonParser: JSONParserProtocol!
     private var service: APIClientStub!
     private var sut: WeatherViewController!
     private var presenter: WeatherPresenterStub!
     
     override func setUp() {
-        service = APIClientStub(session: URLSessionMock())
+        jsonParser = JSONParserDummy(decoder: JSONDecoderDummy())
+        service = APIClientStub(session: URLSessionMock(), jsonParser: jsonParser)
         sut = WeatherViewController()
         sut.dispatchQueue = DispatchQueueMock()
         let locationServiceDummy = LocationServiceDummy(manager: LocationManagerDummy())
-        presenter = WeatherPresenterStub(view: sut, service: service, locationService: locationServiceDummy)
+        presenter = WeatherPresenterStub(view: sut, service: service, locationService: locationServiceDummy, preferencesService: PreferencesServiceDummy())
         sut.presenter = presenter
         presenter.showWeather(for: 0)
     }
     
     override func tearDown() {
+        jsonParser = nil
         service = nil
         sut = nil
         presenter = nil
@@ -28,5 +31,13 @@ class WeatherViewControllerTests: XCTestCase {
     
     func testSetsTheCurrentTemperature() {
         XCTAssertEqual(sut.temperatureLabel.text, "27.0 ℃")
+    }
+    
+    func testSetsTheWeatherImage() {
+        let image = UIImage(systemName: "person")
+
+        sut.setWeatherImage(with: image!, using: DispatchQueueMock())
+
+        XCTAssertEqual(sut.weatherIconImageView.image, image)
     }
 }

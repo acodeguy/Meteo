@@ -3,9 +3,9 @@ import UIKit
 class WeatherViewController: UIViewController, WeatherViewProtocol {
     var presenter: WeatherPresenterProtocol?
     var dispatchQueue: DispatchQueueProtocol = DispatchQueue.main
-    let titleLabel = UILabel()
-    let temperatureLabel = UILabel()
-    let informationPanel = UILabel()
+    var titleLabel = UILabel()
+    var temperatureLabel = UILabel()
+    var informationPanel = UILabel()
     var weatherIconImageView: UIImageView = UIImageView()
     
     override func viewDidLoad() {
@@ -18,11 +18,18 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setupUI()
+    }
+    
     private func setupUI() {
         title = "Meteo"
         view.backgroundColor = .systemBackground
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshWeather))
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(preferencesTapped)),
+            UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshWeather))
+            ]
         
         view.addSubview(weatherIconImageView)
         weatherIconImageView.contentMode = .scaleAspectFit
@@ -61,21 +68,8 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
         ])
     }
     
-    func setWeather(weatherResponse: WeatherResponse) {
-        dispatchQueue.async {
-            self.titleLabel.attributedText = "\(weatherResponse.title), \(weatherResponse.locationInfo.countryName)".center()
-            
-            guard let weather = weatherResponse.weather.first else { return }
-            
-            let temperature = round(weather.temperature)
-            self.temperatureLabel.attributedText = "\(temperature) ℃".center()
-            
-            self.setInformationPanel("Weather updated at \(Date().toShortTime())")
-        }
-    }
-    
-    func setWeatherImage(with image: UIImage) {
-        DispatchQueue.main.async {
+    func setWeatherImage(with image: UIImage, using queue: DispatchQueueProtocol) {
+        queue.async {
             self.weatherIconImageView.image = image
         }
     }
@@ -86,5 +80,13 @@ class WeatherViewController: UIViewController, WeatherViewProtocol {
     
     @objc private func refreshWeather() {
         presenter?.updateCurrentLocation()
+    }
+    
+    @objc private func preferencesTapped() {
+        let view = PreferencesViewController()
+        let presenter = PreferencesPresenter(view: view, preferencesService: UserDefaults.standard)
+        view.presenter = presenter
+        
+        navigationController?.pushViewController(view, animated: true)
     }
 }

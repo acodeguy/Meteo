@@ -171,4 +171,8 @@ struct Constants {
             }
         """
     }
+    
+    struct PreferencesKeys {
+        static let temperatureUnit = "temperatureUnit"
+    }
 }
