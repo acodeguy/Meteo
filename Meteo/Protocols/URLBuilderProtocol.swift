@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: - URLBuilderProtocol
+
 protocol URLBuilderProtocol {
     var baseURLString: String { get set }
     init(baseURL: String)

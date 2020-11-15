@@ -1,5 +1,15 @@
 import CoreLocation
 
+// MARK: - LocationServiceProtocol
+
+protocol LocationServiceProtocol {
+    var locationManager: LocationManagerProtocol { get set }
+    init(manager: LocationManagerProtocol)
+    func getCurrentLocation(completion: @escaping (LocationProtocol) -> Void)
+}
+
+// MARK: - LocationService
+
 class LocationService: NSObject, LocationServiceProtocol {
     var locationManager: LocationManagerProtocol
     private var currentLocationCallback: ((LocationProtocol) -> Void)?

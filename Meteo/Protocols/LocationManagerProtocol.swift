@@ -1,5 +1,7 @@
 import CoreLocation
 
+// MARK: - LocationManagerProtocol
+
 protocol LocationManagerProtocol {
     var locationManagerDelegate: LocationManagerDelegate? { get set }
     var desiredAccuracy: Double { get set }

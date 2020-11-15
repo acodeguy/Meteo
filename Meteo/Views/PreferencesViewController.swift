@@ -1,9 +1,20 @@
 import UIKit
 
+// MARK: - TemperatureUnit
+
 enum TemperatureUnit: Int {
     case celsius = 0
     case fahrenheit = 1
 }
+
+// MARK: - PreferencesViewProtocol
+
+protocol PreferencesViewProtocol {
+    var presenter: PreferencesPresenterProtocol? { get set }
+    func setDisplay(temperateUnit: TemperatureUnit)
+}
+
+// MARK: - PreferencesViewController
 
 class PreferencesViewController: UIViewController, PreferencesViewProtocol {
     var presenter: PreferencesPresenterProtocol?

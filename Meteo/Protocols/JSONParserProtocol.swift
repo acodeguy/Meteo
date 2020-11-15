@@ -1,6 +1,8 @@
 // swiftlint:disable type_name
 import Foundation
 
+// MARK: - JSONParserProtocol
+
 protocol JSONParserProtocol {
     var decoder: JSONDecoderProtocol { get set }
     typealias T = Decodable
