@@ -17,11 +17,43 @@ protocol PreferencesViewProtocol {
 // MARK: - PreferencesViewController
 
 class PreferencesViewController: UIViewController, PreferencesViewProtocol {
+    
+    // MARK: Variables
+    
     var presenter: PreferencesPresenterProtocol?
-    private var stackView = UIStackView()
-    private var temperatureSegmentedController = UISegmentedControl()
-    private var temperatureUnitLabel = UILabel()
+    
+    // MARK: Variables - UI
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 15
         
+        return stackView
+    }()
+    
+    private lazy var temperatureSegmentedControl: UISegmentedControl = {
+        let control = UISegmentedControl()
+        control.translatesAutoresizingMaskIntoConstraints = false
+        control.insertSegment(withTitle: "℃ celsius", at: 0, animated: true)
+        control.insertSegment(withTitle: "℉ fahrenheit", at: 1, animated: true)
+        control.selectedSegmentTintColor = .systemGreen
+        control.addTarget(self, action: #selector(temperatureUnitChanged), for: .valueChanged)
+        
+        return control
+    }()
+    
+    private lazy var temperatureUnitLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Temperature Unit"
+        
+        return label
+    }()
+        
+    // MARK: Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,22 +66,12 @@ class PreferencesViewController: UIViewController, PreferencesViewProtocol {
         presenter?.setDisplay()
     }
     
+    // MARK: Instance methods
+    
     private func setupUI() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 15
         view.addSubview(stackView)
-        
-        temperatureUnitLabel.translatesAutoresizingMaskIntoConstraints = false
-        temperatureUnitLabel.text = "Temperature Unit"
         stackView.addArrangedSubview(temperatureUnitLabel)
-        
-        temperatureSegmentedController.translatesAutoresizingMaskIntoConstraints = false
-        temperatureSegmentedController.insertSegment(withTitle: "℃ celsius", at: 0, animated: true)
-        temperatureSegmentedController.insertSegment(withTitle: "℉ fahrenheit", at: 1, animated: true)
-        temperatureSegmentedController.selectedSegmentTintColor = .systemGreen
-        temperatureSegmentedController.addTarget(self, action: #selector(temperatureUnitChanged), for: .valueChanged)
-        stackView.addArrangedSubview(temperatureSegmentedController)
+        stackView.addArrangedSubview(temperatureSegmentedControl)
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -59,7 +81,7 @@ class PreferencesViewController: UIViewController, PreferencesViewProtocol {
     }
     
     func setDisplay(temperateUnit: TemperatureUnit) {
-        temperatureSegmentedController.selectedSegmentIndex = temperateUnit.rawValue
+        temperatureSegmentedControl.selectedSegmentIndex = temperateUnit.rawValue
     }
     
     @objc private func temperatureUnitChanged(_ sender: UISegmentedControl) {
