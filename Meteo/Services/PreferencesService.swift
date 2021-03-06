@@ -1,5 +1,10 @@
 import Foundation
 
+protocol PreferencesServiceProtocol {
+    func set(_ value: Int, forKey defaultName: String)
+    func integer(forKey key: String) -> Int
+}
+
 class PreferencesService: PreferencesServiceProtocol {
     private var preferences: [String: Any] = [:]
         
